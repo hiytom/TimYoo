@@ -23,6 +23,7 @@ const CaseStudies: React.FC = () => {
               <CaseStudyCard
                 client={study.client}
                 image={study.image}
+                imagePosition={study.imagePosition}
                 tags={study.tags}
                 sections={study.sections}
                 reverseLayout={study.reverseLayout}

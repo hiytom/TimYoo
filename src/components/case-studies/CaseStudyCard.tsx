@@ -9,6 +9,7 @@ export interface CaseStudySection {
 export interface CaseStudyProps {
   client: string;
   image: string;
+  imagePosition?: 'center' | 'top';
   tags?: string[];
   sections: CaseStudySection[];
   reverseLayout?: boolean;
@@ -17,6 +18,7 @@ export interface CaseStudyProps {
 const CaseStudyCard: React.FC<CaseStudyProps> = ({ 
   client, 
   image, 
+  imagePosition = 'center',
   tags, 
   sections, 
   reverseLayout = false 
@@ -26,12 +28,14 @@ const CaseStudyCard: React.FC<CaseStudyProps> = ({
   return (
     <div id={cardId} className={`flex flex-col ${reverseLayout ? 'lg:flex-row-reverse' : 'lg:flex-row'} bg-white rounded-2xl overflow-hidden shadow-xl mb-0 md:mb-16`}>
       {/* Image Section */}
-      <div id={`${cardId}-image-wrap`} className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-[500px]">
+      <div id={`${cardId}-image-wrap`} className="group w-full lg:w-1/2 relative min-h-[300px] lg:min-h-[500px] overflow-hidden">
         <img 
           id={`${cardId}-image`}
           src={image} 
           alt={client} 
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${
+            imagePosition === 'top' ? 'object-top' : 'object-center'
+          }`}
         />
         <div id={`${cardId}-image-overlay`} className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 lg:opacity-60" />
         <div id={`${cardId}-client-wrap`} className="absolute bottom-0 left-0 p-8 text-white">

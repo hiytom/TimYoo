@@ -49,6 +49,7 @@ export interface CaseStudyItem {
   id: number;
   client: string;
   image: string;
+  imagePosition?: 'center' | 'top';
   tags: string[];
   reverseLayout: boolean;
   sections: CaseStudySection[];
@@ -85,7 +86,7 @@ export const siteData = {
 
   hero: {
     backgroundImage:
-      'https://images.unsplash.com/photo-1760818072392-1a9fad8e305e?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920&fit=max',
+      'https://images.unsplash.com/photo-1760818072392-1a9fad8e305e?ixlib=rb-4.1.0&q=75&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&fit=max',
     heading: {
       title: 'Reduce Apparel Sourcing Costs',
       accent: 'Without Losing Control',
@@ -193,21 +194,21 @@ export const siteData = {
         category: 'Chef Wear',
         name: 'For restaurant groups and catering brands',
         descriptionLines: ['Durable, wash-resistant workwear', 'Stable sizing for long-term supply'],
-        image: '/assets/chef-wear-user-upload.png',
+        image: '/assets/chef-wear-user-upload.jpg',
       },
       {
         id: 2,
         category: 'Casuals',
         name: 'For global lifestyle and fashion brands',
         descriptionLines: ['Seasonal and repeat apparel programs', 'Reliable quality for every collection'],
-        image: '/assets/casuals-replacement.png',
+        image: '/assets/casuals-replacement.jpg',
       },
       {
         id: 3,
         category: 'Aprons',
         name: 'For hospitality and professional kitchens',
         descriptionLines: ['Built for daily commercial use', 'Fully customizable for repeat programs'],
-        image: '/assets/apron.png',
+        image: '/assets/apron.jpg',
       },
     ] satisfies ProductItem[],
   },
@@ -219,8 +220,7 @@ export const siteData = {
       {
         id: 1,
         client: 'UK Hospitality Industry Leader',
-        image:
-          'https://images.unsplash.com/photo-1763219805214-91fa634e6006?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
+        image: '/assets/uk-hospitality-case-study.jpg',
         tags: ['Catering Equipment', 'UK Market'],
         reverseLayout: false,
         sections: [
@@ -244,8 +244,8 @@ export const siteData = {
       {
         id: 2,
         client: 'Global Fashion Brand (Confidential)',
-        image:
-          'https://images.unsplash.com/photo-1698604832436-0e7f2c89bf20?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
+        image: '/assets/global-fashion-case-study.jpg',
+        imagePosition: 'top',
         tags: ['Fast Fashion', 'Global Market'],
         reverseLayout: true,
         sections: [
@@ -299,17 +299,17 @@ export const siteData = {
         {
           role: 'Production Team',
           image:
-            'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
+            'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.1.0&q=75&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max',
         },
         {
           role: 'Merchandising Team',
           image:
-            'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
+            'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.1.0&q=75&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max',
         },
         {
           role: 'Operations & Support Team',
           image:
-            'https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max',
+            'https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.1.0&q=75&fm=jpg&crop=entropy&cs=tinysrgb&w=800&fit=max',
         },
       ] satisfies TeamMember[],
     },
