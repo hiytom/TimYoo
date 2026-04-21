@@ -85,8 +85,7 @@ export const siteData = {
   ] satisfies NavItem[],
 
   hero: {
-    backgroundImage:
-      'https://images.unsplash.com/photo-1760818072392-1a9fad8e305e?ixlib=rb-4.1.0&q=75&fm=jpg&crop=entropy&cs=tinysrgb&w=1600&fit=max',
+    backgroundImage: '/assets/hero-factory-background.jpg',
     heading: {
       title: 'Reduce Apparel Sourcing Costs',
       accent: 'Without Losing Control',
