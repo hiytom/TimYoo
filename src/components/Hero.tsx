@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 10, ease: "easeOut" }}
           src={hero.backgroundImage}
           alt="Textile Factory"
-          className="w-full h-full object-cover opacity-50"
+          className="w-full h-full object-cover opacity-50 blur-[1px]"
         />
         {/* Gradient Overlay for bottom text readability */}
         <div id="hero-background-overlay" className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
