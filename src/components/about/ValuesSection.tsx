@@ -23,7 +23,7 @@ const ValuesSection: React.FC = () => {
                     id={toDomId('about-team-member-image', idx + 1, member.role)}
                     src={member.image} 
                     alt={member.role} 
-                    className="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110" 
+                    className="w-full h-64 scale-105 object-cover transform transition-transform duration-[800ms] group-hover:scale-100" 
                   />
                 </div>
                 <div id={toDomId('about-team-member-role-wrap', idx + 1, member.role)} className="p-4 bg-white transition-colors duration-300 group-hover:bg-blue-50">

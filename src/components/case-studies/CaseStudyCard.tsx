@@ -33,7 +33,7 @@ const CaseStudyCard: React.FC<CaseStudyProps> = ({
           id={`${cardId}-image`}
           src={image} 
           alt={client} 
-          className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${
+          className={`absolute inset-0 w-full h-full scale-105 object-cover transition-transform duration-[800ms] group-hover:scale-100 ${
             imagePosition === 'top' ? 'object-top' : 'object-center'
           }`}
         />
