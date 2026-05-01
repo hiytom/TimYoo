@@ -38,6 +38,20 @@ export interface ProductItem {
   name: string;
   descriptionLines: string[];
   image: string;
+  href?: string;
+}
+
+export interface ApronCatalogItem {
+  id: number;
+  name: string;
+  code: string;
+  image: string;
+  useCase: string;
+  material: string;
+  weight: string;
+  moq: string;
+  customization: string;
+  summary: string;
 }
 
 export interface CaseStudySection {
@@ -75,6 +89,23 @@ export interface FacilityItem {
   name: string;
   icon: IconKey;
 }
+
+const apronCollection04Items = Array.from({ length: 29 }, (_, index) => {
+  const sequence = String(index + 1).padStart(2, '0');
+
+  return {
+    id: index + 1,
+    name: `Apron Collection 04 / Style ${sequence}`,
+    code: `C04-${sequence}`,
+    image: `/assets/aprons/collection-04/c04-${sequence}.jpg`,
+    useCase: 'Hospitality & kitchen programs',
+    material: 'Customizable commercial fabric',
+    weight: '180-320 gsm',
+    moq: '300 pcs',
+    customization: 'Logo, label, trim, color, fit, hardware',
+    summary: 'Collection 04 image-only mock style prepared for buyer review.',
+  };
+});
 
 export const siteData = {
   navItems: [
@@ -194,6 +225,7 @@ export const siteData = {
         name: 'For restaurant groups and catering brands',
         descriptionLines: ['Durable, wash-resistant workwear', 'Stable sizing for long-term supply'],
         image: '/assets/chef-wear-user-upload.jpg',
+        href: '/products/chef-wear',
       },
       {
         id: 2,
@@ -208,8 +240,48 @@ export const siteData = {
         name: 'For hospitality and professional kitchens',
         descriptionLines: ['Built for daily commercial use', 'Fully customizable for repeat programs'],
         image: '/assets/apron.jpg',
+        href: '/products/aprons',
       },
     ] satisfies ProductItem[],
+  },
+
+  apronDetailPage: {
+    eyebrow: 'Apron Collection',
+    title: 'Professional Aprons for Hospitality Programs',
+    description:
+      'A curated range of commercial aprons designed for restaurant groups, hotel operations, cafes, and branded service teams. Each style is presented in a clean single-image format for fast buyer review.',
+    stats: [
+      { label: 'Mock styles', value: '29' },
+      { label: 'MOQ from', value: '300 pcs' },
+      { label: 'Lead time', value: '30-45 days' },
+    ],
+    galleryLabel: 'apron styles',
+    items: apronCollection04Items satisfies ApronCatalogItem[],
+  },
+
+  chefWearDetailPage: {
+    eyebrow: 'Chef Wear Collection',
+    title: 'Professional Chef Wear for Hospitality Teams',
+    description:
+      'A focused gallery of chef jackets, bib overalls, and coordinating kitchen workwear presented in the same clean buyer-review format as the apron collection.',
+    stats: [
+      { label: 'Mock styles', value: '08' },
+      { label: 'MOQ from', value: '300 pcs' },
+      { label: 'Lead time', value: '30-45 days' },
+    ],
+    galleryLabel: 'chef wear styles',
+    items: ['01', '03', '02', '05', '08', '06', '04', '07'].map((imageId, index) => ({
+      id: index + 1,
+      name: `Chef Wear Style ${imageId}`,
+      code: `CW-${201 + index}`,
+      image: `/assets/chef-wear/chef-wear-${imageId}.jpg`,
+      useCase: 'Restaurant & catering programs',
+      material: 'Customizable commercial fabric',
+      weight: '180-320 gsm',
+      moq: '300 pcs',
+      customization: 'Logo, label, trim, color, fit, hardware',
+      summary: 'Single-image mock style prepared for buyer review across chef wear programs.',
+    })) satisfies ApronCatalogItem[],
   },
 
   caseStudiesSection: {

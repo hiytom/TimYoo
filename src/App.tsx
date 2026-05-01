@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import Home from './pages/Home';
+import ApronsPage from './pages/ApronsPage';
+import ChefWearPage from './pages/ChefWearPage';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <main id="app-main">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/products/chef-wear" element={<ChefWearPage />} />
+          <Route path="/products/aprons" element={<ApronsPage />} />
         </Routes>
       </main>
       <Footer />

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import logo from '../assets/logo.svg';
 import { siteData } from '../data/siteData';
 import { toDomId } from '../utils/domId';
+import { scrollToSection } from '../utils/scrollToSection';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,7 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
@@ -40,16 +42,21 @@ const Navbar: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     if (path === '/') {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+      }
       setIsOpen(false);
     } else if (isHashLink(path)) {
+      e.preventDefault();
       const targetId = path.split('#')[1];
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-        setIsOpen(false);
+      if (location.pathname === '/') {
+        scrollToSection(targetId);
+      } else {
+        navigate(path);
       }
+      setIsOpen(false);
     }
   };
 
@@ -63,7 +70,7 @@ const Navbar: React.FC = () => {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className={`fixed w-full z-50 transition-colors duration-300 ${
-        scrolled || location.pathname !== '/' 
+        scrolled
           ? 'bg-gray-900/90 backdrop-blur-sm shadow-md' 
           : 'bg-transparent'
       }`}

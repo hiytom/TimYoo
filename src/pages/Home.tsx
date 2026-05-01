@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Hero from '../components/Hero';
 import AboutOnHome from '../components/AboutOnHome';
 import Products from '../components/Products';
@@ -7,9 +8,24 @@ import TimelineSection from '../components/about/TimelineSection';
 import ValuesSection from '../components/about/ValuesSection';
 import FactorySection from '../components/about/FactorySection';
 import { siteData } from '../data/siteData';
+import { scrollToSection } from '../utils/scrollToSection';
 
 const Home: React.FC = () => {
   const { header } = siteData.aboutSection;
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) {
+      return;
+    }
+
+    const targetId = location.hash.replace('#', '');
+    const timer = window.setTimeout(() => {
+      scrollToSection(targetId, 'smooth');
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [location.hash]);
 
   return (
     <>
