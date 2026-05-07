@@ -265,12 +265,12 @@ export const siteData = {
     description:
       'A focused gallery of chef jackets, bib overalls, and coordinating kitchen workwear presented in the same clean buyer-review format as the apron collection.',
     stats: [
-      { label: 'Mock styles', value: '08' },
+      { label: 'Mock styles', value: '15' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],
     galleryLabel: 'chef wear styles',
-    items: ['01', '03', '02', '05', '08', '06', '04', '07'].map((imageId, index) => ({
+    items: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '20', '21', '22'].map((imageId, index) => ({
       id: index + 1,
       name: `Chef Wear Style ${imageId}`,
       code: `CW-${201 + index}`,
