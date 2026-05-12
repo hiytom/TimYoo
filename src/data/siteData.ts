@@ -90,20 +90,77 @@ export interface FacilityItem {
   icon: IconKey;
 }
 
-const apronCollection04Items = Array.from({ length: 29 }, (_, index) => {
+const apronCollection04ImageIds = [
+  'c04-01',
+  'c04-02',
+  'c04-03',
+  'c04-04',
+  'c04-05',
+  'c04-06',
+  'c04-07',
+  'c04-08',
+  'c04-09',
+  'c04-10',
+  'c04-11',
+  'c05-01',
+  'c05-02',
+  'c05-03',
+  'c05-04',
+  'c05-08',
+  'c05-09',
+  'c05-10',
+  'c05-11',
+  'c05-12',
+  'c05-13',
+  'c05-14',
+  'c05-15',
+  'c05-16',
+  'c05-17',
+  'c05-18',
+  'c05-19',
+  'c05-20',
+  'c05-21',
+  'c06-22',
+  'c06-23',
+  'c06-24',
+  'c06-25',
+  'c06-26',
+  'c06-27',
+  'c07-28',
+  'c07-29',
+];
+
+const apronCollection04Items = apronCollection04ImageIds.map((imageId, index) => {
   const sequence = String(index + 1).padStart(2, '0');
 
   return {
     id: index + 1,
     name: `Apron Collection 04 / Style ${sequence}`,
     code: `C04-${sequence}`,
-    image: `/assets/aprons/collection-04/c04-${sequence}.jpg`,
+    image: `/assets/aprons/collection-04/${imageId}.jpg`,
     useCase: 'Hospitality & kitchen programs',
     material: 'Customizable commercial fabric',
     weight: '180-320 gsm',
     moq: '300 pcs',
     customization: 'Logo, label, trim, color, fit, hardware',
     summary: 'Collection 04 image-only mock style prepared for buyer review.',
+  };
+});
+
+const casualsDetailItems = Array.from({ length: 12 }, (_, index) => {
+  const sequence = String(index + 1).padStart(2, '0');
+
+  return {
+    id: index + 1,
+    name: `Casuals Style ${sequence}`,
+    code: `CA-${301 + index}`,
+    image: `/assets/casuals/casuals-${sequence}.jpg`,
+    useCase: 'Lifestyle & fashion programs',
+    material: 'Customizable woven fabric',
+    weight: '160-300 gsm',
+    moq: '300 pcs',
+    customization: 'Fabric, wash, trims, label, fit, color',
+    summary: 'Single-image casualwear style prepared for buyer review across lifestyle programs.',
   };
 });
 
@@ -233,6 +290,7 @@ export const siteData = {
         name: 'For global lifestyle and fashion brands',
         descriptionLines: ['Seasonal and repeat apparel programs', 'Reliable quality for every collection'],
         image: '/assets/casuals-replacement.jpg',
+        href: '/products/casuals',
       },
       {
         id: 3,
@@ -251,7 +309,7 @@ export const siteData = {
     description:
       'A curated range of commercial aprons designed for restaurant groups, hotel operations, cafes, and branded service teams. Each style is presented in a clean single-image format for fast buyer review.',
     stats: [
-      { label: 'Mock styles', value: '29' },
+      { label: 'Mock styles', value: '37' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],
@@ -265,23 +323,51 @@ export const siteData = {
     description:
       'A focused gallery of chef jackets, bib overalls, and coordinating kitchen workwear presented in the same clean buyer-review format as the apron collection.',
     stats: [
-      { label: 'Mock styles', value: '15' },
+      { label: 'Mock styles', value: '26' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],
     galleryLabel: 'chef wear styles',
-    items: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '20', '21', '22'].map((imageId, index) => ({
-      id: index + 1,
-      name: `Chef Wear Style ${imageId}`,
-      code: `CW-${201 + index}`,
-      image: `/assets/chef-wear/chef-wear-${imageId}.jpg`,
-      useCase: 'Restaurant & catering programs',
-      material: 'Customizable commercial fabric',
-      weight: '180-320 gsm',
-      moq: '300 pcs',
-      customization: 'Logo, label, trim, color, fit, hardware',
-      summary: 'Single-image mock style prepared for buyer review across chef wear programs.',
-    })) satisfies ApronCatalogItem[],
+    items: [
+      ...['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '20', '21', '22'].map((imageId, index) => ({
+        id: index + 1,
+        name: `Chef Wear Style ${imageId}`,
+        code: `CW-${201 + index}`,
+        image: `/assets/chef-wear/chef-wear-${imageId}.jpg`,
+        useCase: 'Restaurant & catering programs',
+        material: 'Customizable commercial fabric',
+        weight: '180-320 gsm',
+        moq: '300 pcs',
+        customization: 'Logo, label, trim, color, fit, hardware',
+        summary: 'Single-image mock style prepared for buyer review across chef wear programs.',
+      })),
+      ...['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'].map((imageId, index) => ({
+        id: 16 + index,
+        name: `Chef Wear Pants Style ${imageId}`,
+        code: `CW-P-${301 + index}`,
+        image: `/assets/chef-wear/pants/chef-wear-${imageId}.jpg`,
+        useCase: 'Restaurant & catering programs',
+        material: 'Customizable commercial fabric',
+        weight: '180-320 gsm',
+        moq: '300 pcs',
+        customization: 'Logo, label, trim, color, fit, hardware',
+        summary: 'Single-image chef pants style prepared for buyer review across chef wear programs.',
+      })),
+    ] satisfies ApronCatalogItem[],
+  },
+
+  casualsDetailPage: {
+    eyebrow: 'Casuals Collection',
+    title: 'Casualwear Styles for Lifestyle Programs',
+    description:
+      'A focused gallery of casualwear styles for global fashion and lifestyle programs, presented in a clean single-image format for quick buyer review.',
+    stats: [
+      { label: 'Mock styles', value: '12' },
+      { label: 'MOQ from', value: '300 pcs' },
+      { label: 'Lead time', value: '30-45 days' },
+    ],
+    galleryLabel: 'casualwear styles',
+    items: casualsDetailItems satisfies ApronCatalogItem[],
   },
 
   caseStudiesSection: {

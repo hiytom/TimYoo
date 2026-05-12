@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html :where(a[href], button:not(:disabled), [role="button"], .clickable-cursor),
+html :where(a[href], button:not(:disabled), [role="button"], .clickable-cursor):hover,
+html :where(a[href], button:not(:disabled), [role="button"], .clickable-cursor) * {
+  cursor: pointer !important;
+}

@@ -78,10 +78,10 @@ const Navbar: React.FC = () => {
       <div id="navbar-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div id="navbar-layout" className="flex justify-between items-center h-28">
           <div id="navbar-logo-wrap" className="flex-shrink-0 flex items-center">
-            <Link id="navbar-home-link" to="/" className="flex items-center" onClick={(e) => handleNavClick(e, '/')}>
+            <Link id="navbar-home-link" to="/" className="clickable-cursor flex cursor-pointer items-center" onClick={(e) => handleNavClick(e, '/')}>
               <img 
                 id="navbar-logo-image"
-                className="h-24 w-auto brightness-0 invert" 
+                className="h-24 w-auto cursor-pointer brightness-0 invert" 
                 src={logo} 
                 alt="Company Logo" 
               />
@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
                   key={item.name}
                   href={item.path}
                   onClick={(e) => handleNavClick(e, item.path)}
-                  className="text-white hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="clickable-cursor cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-white transition-colors hover:text-blue-400"
                 >
                   {item.name}
                 </a>
@@ -106,7 +106,7 @@ const Navbar: React.FC = () => {
                   key={item.name}
                   to={item.path}
                   onClick={(e) => handleNavClick(e, item.path)}
-                  className="text-white hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="clickable-cursor cursor-pointer rounded-md px-3 py-2 text-sm font-medium text-white transition-colors hover:text-blue-400"
                 >
                   {item.name}
                 </Link>
@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
             <button
               id="navbar-mobile-toggle"
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-blue-400 focus:outline-none"
+              className="clickable-cursor inline-flex cursor-pointer items-center justify-center rounded-md p-2 text-white hover:text-blue-400 focus:outline-none"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -136,7 +136,7 @@ const Navbar: React.FC = () => {
                   id={toDomId('navbar-mobile-link', item.name)}
                   key={item.name}
                   href={item.path}
-                  className="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium"
+                  className="clickable-cursor block cursor-pointer rounded-md px-3 py-2 text-base font-medium text-white hover:text-blue-400"
                   onClick={(e) => handleNavClick(e, item.path)}
                 >
                   {item.name}
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
                   id={toDomId('navbar-mobile-link', item.name)}
                   key={item.name}
                   to={item.path}
-                  className="text-white hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium"
+                  className="clickable-cursor block cursor-pointer rounded-md px-3 py-2 text-base font-medium text-white hover:text-blue-400"
                   onClick={(e) => handleNavClick(e, item.path)}
                 >
                   {item.name}

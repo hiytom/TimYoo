@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AnimatedSection from '../AnimatedSection';
 import { toDomId } from '../../utils/domId';
 
@@ -15,6 +16,12 @@ interface ProductGalleryPageProps {
   pageId: string;
   pageData: ProductGalleryPageData;
 }
+
+const productDetailLinks = [
+  { pageId: 'chef-wear-page', label: 'Chef Wear', path: '/products/chef-wear' },
+  { pageId: 'casuals-page', label: 'Casuals', path: '/products/casuals' },
+  { pageId: 'aprons-page', label: 'Aprons', path: '/products/aprons' },
+];
 
 const ProductGalleryPage: React.FC<ProductGalleryPageProps> = ({ pageId, pageData }) => {
   return (
@@ -52,14 +59,33 @@ const ProductGalleryPage: React.FC<ProductGalleryPageProps> = ({ pageId, pageDat
 
       <section className="pb-24 pt-12 md:pt-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="mb-10 flex items-end justify-between gap-6 border-b border-stone-200 pb-10">
+          <AnimatedSection className="mb-10 flex flex-col gap-6 border-b border-stone-200 pb-10 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Product Gallery</p>
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 md:text-4xl">
                 {pageData.items.length} {pageData.galleryLabel}
               </h2>
             </div>
-            <p className="hidden text-sm uppercase tracking-[0.2em] text-slate-400 md:block">Image-first presentation</p>
+            <nav aria-label="Switch product detail page" className="flex flex-wrap gap-2">
+              {productDetailLinks.map((link) => {
+                const isActive = link.pageId === pageId;
+
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={`clickable-cursor cursor-pointer rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition-colors ${
+                      isActive
+                        ? 'border-slate-900 bg-slate-900 text-white'
+                        : 'border-stone-300 bg-white text-slate-600 hover:border-blue-700 hover:text-blue-700'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
           </AnimatedSection>
 
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">

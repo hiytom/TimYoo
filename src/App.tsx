@@ -6,6 +6,7 @@ import BackToTop from './components/BackToTop';
 import Home from './pages/Home';
 import ApronsPage from './pages/ApronsPage';
 import ChefWearPage from './pages/ChefWearPage';
+import CasualsPage from './pages/CasualsPage';
 
 function App() {
   const location = useLocation();
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products/chef-wear" element={<ChefWearPage />} />
+          <Route path="/products/casuals" element={<CasualsPage />} />
           <Route path="/products/aprons" element={<ApronsPage />} />
         </Routes>
       </main>
