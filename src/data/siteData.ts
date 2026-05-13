@@ -155,7 +155,7 @@ const apronCollection04Items = apronCollection04ImageIds.map((imageId, index) =>
   };
 });
 
-const casualsDetailItems = Array.from({ length: 12 }, (_, index) => {
+const casualsDetailItems = Array.from({ length: 13 }, (_, index) => {
   const sequence = String(index + 1).padStart(2, '0');
 
   return {
@@ -331,7 +331,7 @@ export const siteData = {
     description:
       'A focused gallery of chef jackets, bib overalls, and coordinating kitchen workwear presented in the same clean buyer-review format as the apron collection.',
     stats: [
-      { label: 'Mock styles', value: '28' },
+      { label: 'Mock styles', value: '27' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],
@@ -365,7 +365,7 @@ export const siteData = {
         customization: 'Logo, label, trim, color, fit, hardware',
         summary: 'Single-image mock style prepared for buyer review across chef wear programs.',
       })),
-      ...['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13'].map((imageId, index) => ({
+      ...['01', '02', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13'].map((imageId, index) => ({
         id: 16 + index,
         name: `Chef Wear Pants Style ${imageId}`,
         code: `CW-P-${301 + index}`,
@@ -386,7 +386,7 @@ export const siteData = {
     description:
       'A focused gallery of casualwear styles for global fashion and lifestyle programs, presented in a clean single-image format for quick buyer review.',
     stats: [
-      { label: 'Mock styles', value: '12' },
+      { label: 'Mock styles', value: '13' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],
