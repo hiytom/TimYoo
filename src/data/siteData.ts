@@ -128,6 +128,14 @@ const apronCollection04ImageIds = [
   'c06-27',
   'c07-28',
   'c07-29',
+  'c08-01',
+  'c08-02',
+  'c08-03',
+  'c08-04',
+  'c08-05',
+  'c08-06',
+  'c08-07',
+  'c08-08',
 ];
 
 const apronCollection04Items = apronCollection04ImageIds.map((imageId, index) => {
@@ -309,7 +317,7 @@ export const siteData = {
     description:
       'A curated range of commercial aprons designed for restaurant groups, hotel operations, cafes, and branded service teams. Each style is presented in a clean single-image format for fast buyer review.',
     stats: [
-      { label: 'Mock styles', value: '37' },
+      { label: 'Mock styles', value: '45' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],
@@ -323,13 +331,29 @@ export const siteData = {
     description:
       'A focused gallery of chef jackets, bib overalls, and coordinating kitchen workwear presented in the same clean buyer-review format as the apron collection.',
     stats: [
-      { label: 'Mock styles', value: '26' },
+      { label: 'Mock styles', value: '28' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],
     galleryLabel: 'chef wear styles',
     items: [
-      ...['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '20', '21', '22'].map((imageId, index) => ({
+      ...[
+        '01-01',
+        '01-02',
+        '01-03',
+        '01-04',
+        '01-05',
+        '01-06',
+        '02-01',
+        '02-02',
+        '02-03',
+        '02-04',
+        '02-05',
+        '02-06',
+        '20',
+        '21',
+        '22',
+      ].map((imageId, index) => ({
         id: index + 1,
         name: `Chef Wear Style ${imageId}`,
         code: `CW-${201 + index}`,
@@ -341,7 +365,7 @@ export const siteData = {
         customization: 'Logo, label, trim, color, fit, hardware',
         summary: 'Single-image mock style prepared for buyer review across chef wear programs.',
       })),
-      ...['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11'].map((imageId, index) => ({
+      ...['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13'].map((imageId, index) => ({
         id: 16 + index,
         name: `Chef Wear Pants Style ${imageId}`,
         code: `CW-P-${301 + index}`,
