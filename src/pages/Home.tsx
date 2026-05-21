@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigationType } from 'react-router-dom';
 import Hero from '../components/Hero';
 import AboutOnHome from '../components/AboutOnHome';
 import Products from '../components/Products';
@@ -9,13 +9,19 @@ import ValuesSection from '../components/about/ValuesSection';
 import FactorySection from '../components/about/FactorySection';
 import { siteData } from '../data/siteData';
 import { scrollToSection } from '../utils/scrollToSection';
+import { getSavedScrollPosition } from '../utils/scrollPositions';
 
 const Home: React.FC = () => {
   const { header } = siteData.aboutSection;
   const location = useLocation();
+  const navigationType = useNavigationType();
 
   useEffect(() => {
     if (!location.hash) {
+      return;
+    }
+
+    if (navigationType === 'POP' && getSavedScrollPosition(location.key) !== undefined) {
       return;
     }
 
@@ -25,7 +31,7 @@ const Home: React.FC = () => {
     }, 0);
 
     return () => window.clearTimeout(timer);
-  }, [location.hash]);
+  }, [location.hash, location.key, navigationType]);
 
   return (
     <>

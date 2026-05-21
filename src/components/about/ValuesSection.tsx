@@ -7,7 +7,7 @@ const ValuesSection: React.FC = () => {
   const { teams } = siteData.aboutSection;
 
   return (
-    <div id="about-teams" className="pt-12 pb-0 md:py-20 bg-white">
+    <div id="about-teams" className="hidden pt-12 pb-0 md:py-20 bg-white">
       <div id="about-teams-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection id="about-teams-header" className="text-center mb-0 md:mb-12">
           <h2 id="about-teams-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{teams.title}</h2>
