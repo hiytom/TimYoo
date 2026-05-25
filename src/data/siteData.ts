@@ -90,62 +90,36 @@ export interface FacilityItem {
   icon: IconKey;
 }
 
-const apronCollection04ImageIds = [
-  'c04-01',
-  'c04-02',
-  'c04-03',
-  'c04-04',
-  'c04-05',
-  'c04-06',
-  'c04-07',
-  'c04-08',
-  'c04-09',
-  'c04-10',
-  'c04-11',
-  'c05-01',
-  'c05-02',
-  'c05-03',
-  'c05-04',
-  'c05-08',
-  'c05-09',
-  'c05-10',
-  'c05-11',
-  'c05-12',
-  'c05-13',
-  'c05-14',
-  'c05-15',
-  'c05-16',
-  'c05-17',
-  'c05-18',
-  'c05-19',
-  'c05-20',
-  'c05-21',
-  'c06-22',
-  'c06-23',
-  'c06-24',
-  'c06-25',
-  'c06-26',
-  'c06-27',
-  'c07-28',
-  'c07-29',
-  'c08-01',
-  'c08-02',
-  'c08-03',
-  'c08-04',
-  'c08-05',
-  'c08-06',
-  'c08-07',
-  'c08-08',
+const apronCollection04Images = [
+  ...[1, 2, 3].map((fileNumber) => ({ category: 'Linen', path: `01-linen/${fileNumber}.jpg` })),
+  ...[1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13].map((fileNumber) => ({
+    category: 'Canvas',
+    path: `02-canvas/${fileNumber}.jpg`,
+  })),
+  ...[1, 2, 3, 4, 5, 6].map((fileNumber) => ({ category: 'Denim', path: `03-denim/${fileNumber}.jpg` })),
+  ...['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.png', '6.jpg'].map((fileName) => ({
+    category: 'Home',
+    path: `04-home/${fileName}`,
+  })),
+  ...[1, 2, 3].map((fileNumber) => ({ category: 'Basic', path: `05-basic/${fileNumber}.jpg` })),
+  ...['1.png', '2.png', '3.jpg', '4.jpg', '5.jpg', '6.jpg'].map((fileName) => ({
+    category: 'Waterproof',
+    path: `06-waterproof/${fileName}`,
+  })),
+  ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((fileNumber) => ({
+    category: 'Waist',
+    path: `07-waist/${fileNumber}.jpg`,
+  })),
 ];
 
-const apronCollection04Items = apronCollection04ImageIds.map((imageId, index) => {
+const apronCollection04Items = apronCollection04Images.map((image, index) => {
   const sequence = String(index + 1).padStart(2, '0');
 
   return {
     id: index + 1,
-    name: `Apron Collection 04 / Style ${sequence}`,
+    name: `${image.category} Apron / Style ${sequence}`,
     code: `C04-${sequence}`,
-    image: `/assets/aprons/collection-04/${imageId}.jpg`,
+    image: `/assets/aprons/${image.path}`,
     useCase: 'Hospitality & kitchen programs',
     material: 'Customizable commercial fabric',
     weight: '180-320 gsm',
@@ -155,14 +129,14 @@ const apronCollection04Items = apronCollection04ImageIds.map((imageId, index) =>
   };
 });
 
-const casualsDetailItems = Array.from({ length: 13 }, (_, index) => {
+const casualsDetailItems = Array.from({ length: 7 }, (_, index) => {
   const sequence = String(index + 1).padStart(2, '0');
 
   return {
     id: index + 1,
     name: `Casuals Style ${sequence}`,
     code: `CA-${301 + index}`,
-    image: `/assets/casuals/casuals-${sequence}.jpg`,
+    image: `/assets/casuals/${index + 1}.jpg`,
     useCase: 'Lifestyle & fashion programs',
     material: 'Customizable woven fabric',
     weight: '160-300 gsm',
@@ -317,7 +291,7 @@ export const siteData = {
     description:
       'A curated range of commercial aprons designed for restaurant groups, hotel operations, cafes, and branded service teams. Each style is presented in a clean single-image format for fast buyer review.',
     stats: [
-      { label: 'Mock styles', value: '45' },
+      { label: 'Mock styles', value: '48' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],
@@ -331,7 +305,7 @@ export const siteData = {
     description:
       'A focused gallery of chef jackets, bib overalls, and coordinating kitchen workwear presented in the same clean buyer-review format as the apron collection.',
     stats: [
-      { label: 'Mock styles', value: '27' },
+      { label: 'Mock styles', value: '21' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],
@@ -365,11 +339,11 @@ export const siteData = {
         customization: 'Logo, label, trim, color, fit, hardware',
         summary: 'Single-image mock style prepared for buyer review across chef wear programs.',
       })),
-      ...['01', '02', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13'].map((imageId, index) => ({
+      ...[1, 2, 3, 4, 5, 6].map((imageId, index) => ({
         id: 16 + index,
-        name: `Chef Wear Pants Style ${imageId}`,
+        name: `Chef Wear Pants Style ${String(imageId).padStart(2, '0')}`,
         code: `CW-P-${301 + index}`,
-        image: `/assets/chef-wear/pants/chef-wear-${imageId}.jpg`,
+        image: `/assets/chef-wear/pants/${imageId}.jpg`,
         useCase: 'Restaurant & catering programs',
         material: 'Customizable commercial fabric',
         weight: '180-320 gsm',
@@ -386,7 +360,7 @@ export const siteData = {
     description:
       'A focused gallery of casualwear styles for global fashion and lifestyle programs, presented in a clean single-image format for quick buyer review.',
     stats: [
-      { label: 'Mock styles', value: '13' },
+      { label: 'Mock styles', value: '7' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],

@@ -90,7 +90,12 @@ const ProductGalleryPage: React.FC<ProductGalleryPageProps> = ({ pageId, pageDat
 
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
             {pageData.items.map((item, index) => (
-              <AnimatedSection key={item.code} id={toDomId(pageId, 'card-wrap', item.code, item.name)} delay={index * 0.06} className="h-full">
+              <AnimatedSection
+                key={item.code}
+                id={toDomId(pageId, 'card-wrap', item.code, item.name)}
+                delay={(index % 6) * 0.02}
+                className="h-full"
+              >
                 <article
                   id={toDomId(pageId, 'card', item.code, item.name)}
                   className="group overflow-hidden rounded-[28px] border border-stone-200 bg-white shadow-[0_24px_60px_-32px_rgba(15,23,42,0.28)] transition-transform duration-500 hover:-translate-y-1"
@@ -100,6 +105,8 @@ const ProductGalleryPage: React.FC<ProductGalleryPageProps> = ({ pageId, pageDat
                       id={toDomId(pageId, 'image', item.code, item.name)}
                       src={item.image}
                       alt={item.name}
+                      loading="eager"
+                      decoding="async"
                       className="h-[480px] w-full object-contain object-center"
                     />
                   </div>
