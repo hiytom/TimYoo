@@ -518,7 +518,11 @@ export const siteData = {
       { name: 'About Us', path: '#about' },
     ] satisfies Array<{ name: string; path: string }>,
     contact: {
-      addressLines: ['123 Manufacturing Zone,', 'Industrial District, Southeast Asia'],
+      addressLines: [
+        'Kompong Preah Village, Tang Krang Commune,',
+        'Batheay District, Kampong Cham Province,',
+        'Kingdom of Cambodia',
+      ],
       phone: '+1 (555) 123-4567',
       email: 'huiwang@starrystraind.com',
     },
