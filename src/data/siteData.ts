@@ -503,7 +503,7 @@ export const siteData = {
     cta: {
       title: 'Start Your Next Program With Less Risk',
       description: "Share your product and timeline. We'll review and respond within 24 hours.",
-      email: 'huiwang@starrystraind.com',
+      email: 'huiwang@timyooapparel.com',
       buttonLabel: 'Discuss Your Program',
     },
   },
@@ -519,12 +519,12 @@ export const siteData = {
     ] satisfies Array<{ name: string; path: string }>,
     contact: {
       addressLines: [
-        'Kompong Preah Village, Tang Krang Commune,',
+        '6A, Kompong Preah Villange, Tang Krang Commune,',
         'Batheay District, Kampong Cham Province,',
-        'Kingdom of Cambodia',
+        'Cambodia',
       ],
       phone: '+1 (555) 123-4567',
-      email: 'huiwang@starrystraind.com',
+      email: 'huiwang@timyooapparel.com',
     },
     companyName: 'TIMYOO',
   },

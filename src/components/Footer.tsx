@@ -1,8 +1,30 @@
 import React from 'react';
-import { Mail, MapPin } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import logo from '../assets/logo.svg';
 import { siteData } from '../data/siteData';
 import { toDomId } from '../utils/domId';
+
+const MapPinIcon: React.FC<{ className?: string; id?: string }> = ({ className, id }) => (
+  <svg
+    id={id}
+    className={className}
+    viewBox="0 0 24 24"
+    overflow="visible"
+    role="img"
+    aria-label="Map location"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="2"
+  >
+    <g transform="translate(12 12) scale(1.25) translate(-12 -12)">
+      <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+      <circle cx="12" cy="10" r="3" />
+    </g>
+  </svg>
+);
 
 const LinkedInIcon: React.FC<{ className?: string; id?: string }> = ({ className, id }) => (
   <svg
@@ -22,6 +44,8 @@ const LinkedInIcon: React.FC<{ className?: string; id?: string }> = ({ className
 
 const Footer: React.FC = () => {
   const { footer } = siteData;
+  const address = footer.contact.addressLines.join(' ');
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8" id="site-footer">
@@ -61,14 +85,26 @@ const Footer: React.FC = () => {
             <h3 id="footer-contact-title" className="text-lg font-semibold mb-6">Contact Us</h3>
             <ul id="footer-contact-list" className="space-y-4">
               <li id="footer-contact-address-item" className="flex items-start">
-                <MapPin id="footer-contact-address-icon" className="w-5 h-5 shrink-0 text-blue-500 mr-3 mt-1" />
-                <span id="footer-contact-address" className="text-gray-400">
-                  {footer.contact.addressLines.join(' ')}
-                </span>
+                <MapPinIcon id="footer-contact-address-icon" className="w-5 h-5 shrink-0 text-blue-500 mr-3 mt-1" />
+                <a
+                  id="footer-contact-address"
+                  href={googleMapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  {address}
+                </a>
               </li>
               <li id="footer-contact-email-item" className="flex items-center">
                 <Mail id="footer-contact-email-icon" className="w-5 h-5 shrink-0 text-blue-500 mr-3" />
-                <span id="footer-contact-email" className="text-gray-400">{footer.contact.email}</span>
+                <a
+                  id="footer-contact-email"
+                  href={`mailto:${footer.contact.email}`}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  {footer.contact.email}
+                </a>
               </li>
               <li id="footer-contact-phone-item" className="flex items-center">
                 <LinkedInIcon id="footer-contact-phone-icon" className="w-5 h-5 shrink-0 text-[#0A66C2] mr-3" />
