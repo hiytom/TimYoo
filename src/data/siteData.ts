@@ -519,10 +519,11 @@ export const siteData = {
     ] satisfies Array<{ name: string; path: string }>,
     contact: {
       addressLines: [
-        '6A, Kompong Preah Villange, Tang Krang Commune,',
-        'Batheay District, Kampong Cham Province,',
+        'No. 191, National Road 6 (AH11), Kompong Preah Village,',
+        'Tang Krang Commune, Batheay District, Kampong Cham Province,',
         'Cambodia',
       ],
+      mapUrl: 'https://www.google.com/maps?q=11.875606,104.950452',
       phone: '+1 (555) 123-4567',
       email: 'huiwang@timyooapparel.com',
     },

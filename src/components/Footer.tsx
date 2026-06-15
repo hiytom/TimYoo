@@ -45,7 +45,7 @@ const LinkedInIcon: React.FC<{ className?: string; id?: string }> = ({ className
 const Footer: React.FC = () => {
   const { footer } = siteData;
   const address = footer.contact.addressLines.join(' ');
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  const googleMapsUrl = footer.contact.mapUrl;
 
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8" id="site-footer">
