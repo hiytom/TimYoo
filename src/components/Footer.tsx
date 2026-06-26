@@ -124,7 +124,6 @@ const Footer: React.FC = () => {
 
         <div id="footer-copyright-wrap" className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
           <p id="footer-copyright">&copy; {new Date().getFullYear()} {footer.companyName}. All rights reserved.</p>
-          <p id="footer-version" className="mt-2">{footer.version}</p>
         </div>
       </div>
     </footer>

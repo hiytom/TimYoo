@@ -184,24 +184,14 @@ const TimelineSection: React.FC = () => {
   const { timeline } = siteData.aboutSection;
 
   return (
-    <div id="about-timeline" className="bg-white py-14 md:py-20">
+    <div id="about-timeline" className="bg-white pb-0 pt-14 md:pt-20">
       <div id="about-timeline-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection id="about-timeline-header" className="mb-10 max-w-3xl md:mb-12">
-          <span className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">About TimYoo</span>
-          <h2 id="about-timeline-title" className="mt-3 text-3xl font-bold text-gray-950 md:text-5xl">
-            {timeline.title}
-          </h2>
-          <p id="about-timeline-description" className="mt-4 text-lg leading-relaxed text-gray-600">
-            {timeline.description}
-          </p>
-        </AnimatedSection>
-
         <div id="about-timeline-content" className="divide-y divide-gray-200">
           <GallerySection
             id="about-timeline-journey"
             number="01"
             title="Our Journey"
-            summary="Two Cambodia factory sites built for stable long-term apparel programs."
+            summary="Rooted in China, growing across Southeast Asia."
             images={timeline.images}
           />
           <GallerySection
@@ -219,7 +209,6 @@ const TimelineSection: React.FC = () => {
             title="Life At The Factory"
             summary="Everyday factory spaces that support teams before, during, and after production."
             images={timeline.factoryLiveImages}
-            reverse
             delay={0.2}
           />
           <GallerySection
@@ -228,6 +217,7 @@ const TimelineSection: React.FC = () => {
             title="Facilities and Capacity"
             summary="Production lines, storage, fabric handling, and shipment preparation in one integrated site."
             images={timeline.facilityImages}
+            reverse
             delay={0.3}
           />
         </div>

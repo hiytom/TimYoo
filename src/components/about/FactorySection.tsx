@@ -10,13 +10,6 @@ const FactorySection: React.FC = () => {
   return (
     <div id="about-facilities" className="py-12 md:py-16 bg-white">
       <div id="about-facilities-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection id="about-facilities-header" className="text-center mb-12">
-          <h2 id="about-facilities-title" className="text-3xl font-bold text-gray-900 mb-4">{facilities.title}</h2>
-          <p id="about-facilities-description" className="text-lg text-gray-600 max-w-3xl mx-auto">
-            {facilities.description}
-          </p>
-        </AnimatedSection>
-
         {/* Equipment List as Cards */}
         <div id="about-facilities-content" className="max-w-5xl mx-auto">
           <div id="about-facilities-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

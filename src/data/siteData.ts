@@ -485,7 +485,7 @@ export const siteData = {
       description: 'Two factories in Cambodia, ensuring stable capacity for repeat programs.',
       items: [
         { name: '2 Factories in Cambodia', icon: 'mapPin' },
-        { name: '300+ Skilled Local Workers', icon: 'users' },
+        { name: '400+ Skilled Local Workers', icon: 'users' },
         { name: '12 Program-Based Production Lines', icon: 'activity' },
         { name: '150,000+ Units Monthly Capacity', icon: 'box' },
         { name: '20+ Units Specialized Machines In-House', icon: 'settings' },
@@ -523,7 +523,7 @@ export const siteData = {
   footer: {
     summary:
       'Helping global brands reduce sourcing costs while keeping quality and delivery under control.',
-    version: 'v0.1.1',
+    version: 'v0.1.2',
     quickLinks: [
       { name: 'Home', path: '#' },
       { name: 'Products', path: '#products' },
