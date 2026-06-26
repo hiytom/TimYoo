@@ -489,7 +489,7 @@ export const siteData = {
         { name: '12 Program-Based Production Lines', icon: 'activity' },
         { name: '150,000+ Units Monthly Capacity', icon: 'box' },
         { name: '20+ Units Specialized Machines In-House', icon: 'settings' },
-        { name: '6+ Years Operating in Cambodia', icon: 'calendar' },
+        { name: '8+ Years Operating in Cambodia', icon: 'calendar' },
       ] satisfies FacilityItem[],
     },
   },
@@ -523,7 +523,7 @@ export const siteData = {
   footer: {
     summary:
       'Helping global brands reduce sourcing costs while keeping quality and delivery under control.',
-    version: 'v0.1.0',
+    version: 'v0.1.1',
     quickLinks: [
       { name: 'Home', path: '#' },
       { name: 'Products', path: '#products' },

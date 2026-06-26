@@ -214,20 +214,20 @@ const TimelineSection: React.FC = () => {
             delay={0.1}
           />
           <GallerySection
-            id="about-timeline-facility"
-            number="03"
-            title="Facilities and Capacity"
-            summary="Production lines, storage, fabric handling, and shipment preparation in one integrated site."
-            images={timeline.facilityImages}
-            delay={0.2}
-          />
-          <GallerySection
             id="about-timeline-factory-live"
-            number="04"
+            number="03"
             title="Life At The Factory"
             summary="Everyday factory spaces that support teams before, during, and after production."
             images={timeline.factoryLiveImages}
             reverse
+            delay={0.2}
+          />
+          <GallerySection
+            id="about-timeline-facility"
+            number="04"
+            title="Facilities and Capacity"
+            summary="Production lines, storage, fabric handling, and shipment preparation in one integrated site."
+            images={timeline.facilityImages}
             delay={0.3}
           />
         </div>
