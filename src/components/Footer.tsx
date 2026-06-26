@@ -53,12 +53,12 @@ const Footer: React.FC = () => {
         <div id="footer-grid" className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Company Info */}
           <div id="footer-company" >
-            <div id="footer-logo-wrap" className="flex items-center mb-6">
+            <div id="footer-logo-wrap" className="mb-6 flex h-[1.75rem] items-center">
               <img 
                 id="footer-logo-image"
                 src={logo} 
                 alt="Logo" 
-                className="h-24 w-auto brightness-0 invert" 
+                className="h-full w-auto brightness-0 invert" 
               />
             </div>
             <p id="footer-summary" className="text-gray-400 mb-6">

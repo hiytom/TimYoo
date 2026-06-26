@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
             <Link id="navbar-home-link" to="/" className="clickable-cursor flex cursor-pointer items-center" onClick={(e) => handleNavClick(e, '/')}>
               <img 
                 id="navbar-logo-image"
-                className="h-24 w-auto cursor-pointer brightness-0 invert" 
+                className="h-[1rem] w-auto cursor-pointer brightness-0 invert" 
                 src={logo} 
                 alt="Company Logo" 
               />
