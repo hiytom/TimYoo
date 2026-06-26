@@ -75,6 +75,11 @@ export interface TimelineEvent {
   description: string;
 }
 
+export interface JourneyImage {
+  src: string;
+  alt: string;
+}
+
 export interface TeamMember {
   role: string;
   image: string;
@@ -429,23 +434,30 @@ export const siteData = {
     timeline: {
       title: 'Our Journey',
       description: 'Rooted in China, growing across Southeast Asia.',
-      events: [
+      images: [
         {
-          year: 'Before 2018',
-          title: '',
-          description: 'Manufacturing Roots in China',
+          src: '/assets/about/our-journey-timyoo-cambodia.jpg',
+          alt: 'Tim Yoo Apparel Cambodia factory entrance',
         },
         {
-          year: '2018-2024',
-          title: '',
-          description: 'First Cambodia factory established, with six years of stable operations.',
+          src: '/assets/about/our-journey-young-me-apparel.jpg',
+          alt: 'Young Me Apparel Cambodia factory entrance',
         },
-        {
-          year: '2025',
-          title: '',
-          description: 'Second Cambodia factory launched.',
-        },
-      ] satisfies TimelineEvent[],
+      ] satisfies JourneyImage[],
+      peopleImages: [1, 3, 4, 7, 8].map((fileNumber, index) => ({
+        src: `/assets/about/factory-people/factory-people-${String(fileNumber).padStart(2, '0')}.jpg`,
+        alt: `Factory people at work ${index + 1}`,
+      })) satisfies JourneyImage[],
+      facilityImages: [
+        ...[9, 2, 8, 6, 5, 11, 4].map((fileNumber, index) => ({
+          src: `/assets/about/facility/facility-${String(fileNumber).padStart(2, '0')}.jpg`,
+          alt: `Factory facility ${index + 1}`,
+        })),
+      ] satisfies JourneyImage[],
+      factoryLiveImages: [1, 2, 3].map((fileNumber, index) => ({
+        src: `/assets/about/factory-live/factory-live-${String(fileNumber).padStart(2, '0')}.jpg`,
+        alt: `Factory live scene ${index + 1}`,
+      })) satisfies JourneyImage[],
     },
     teams: {
       title: 'The Teams Behind Every Program',
@@ -511,6 +523,7 @@ export const siteData = {
   footer: {
     summary:
       'Helping global brands reduce sourcing costs while keeping quality and delivery under control.',
+    version: 'v0.1.0',
     quickLinks: [
       { name: 'Home', path: '#' },
       { name: 'Products', path: '#products' },
@@ -523,7 +536,8 @@ export const siteData = {
         'Tang Krang Commune, Batheay District, Kampong Cham Province,',
         'Cambodia',
       ],
-      mapUrl: 'https://www.google.com/maps?q=11.875606,104.950452',
+      mapUrl:
+        'https://www.google.com/maps/search/?api=1&query=TIMYOO%20APPAREL%20%28CAMBODIA%29%20CO.%2C%20LTD.',
       phone: '+1 (555) 123-4567',
       email: 'huiwang@timyooapparel.com',
     },
