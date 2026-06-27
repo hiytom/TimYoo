@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
                 id="footer-logo-image"
                 src={logo} 
                 alt="Logo" 
-                className="h-full w-auto brightness-0 invert" 
+                className="h-[0.875rem] w-auto brightness-0 invert" 
               />
             </div>
             <p id="footer-summary" className="text-gray-400 mb-6">
