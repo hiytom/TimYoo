@@ -1,0 +1,63 @@
+---
+import { siteData } from '../../data/siteData';
+import { toDomId } from '../../utils/domId';
+
+const { caseStudiesSection } = siteData;
+---
+
+<section id="case-studies" class="pt-12 pb-0 md:py-24 bg-gray-50 font-sans">
+  <div id="case-studies-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="case-studies-header" class="reveal text-center mb-16">
+      <h2 id="case-studies-title" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">{caseStudiesSection.title}</h2>
+      <p id="case-studies-description" class="text-lg text-gray-600 max-w-2xl mx-auto">
+        {caseStudiesSection.description}
+      </p>
+    </div>
+
+    <div id="case-studies-list" class="flex flex-col gap-12">
+      {caseStudiesSection.items.map((study, index) => {
+        const cardId = toDomId('case-study-card', study.client);
+        return (
+          <div id={toDomId('case-study-item', study.id, study.client)} class="reveal" style={`--reveal-delay: ${index * 200}ms`}>
+            <div id={cardId} class={`flex flex-col ${study.reverseLayout ? 'lg:flex-row-reverse' : 'lg:flex-row'} bg-white rounded-2xl overflow-hidden shadow-xl mb-0 md:mb-16`}>
+              <div id={`${cardId}-image-wrap`} class="group w-full lg:w-1/2 relative min-h-[300px] lg:min-h-[500px] overflow-hidden">
+                <img
+                  id={`${cardId}-image`}
+                  src={study.image}
+                  alt={study.client}
+                  class={`absolute inset-0 w-full h-full scale-105 object-cover transition-transform duration-[800ms] group-hover:scale-100 ${
+                    study.imagePosition === 'top' ? 'object-top' : 'object-center'
+                  }`}
+                />
+                <div id={`${cardId}-image-overlay`} class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 lg:opacity-60"></div>
+                <div id={`${cardId}-client-wrap`} class="absolute bottom-0 left-0 p-8 text-white">
+                  <h3 id={`${cardId}-client`} class="text-[1.2rem] font-bold mb-0">{study.client}</h3>
+                </div>
+              </div>
+
+              <div id={`${cardId}-content`} class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-white">
+                <div id={`${cardId}-sections`} class="space-y-8">
+                  {study.sections.map((section, sectionIndex) => (
+                    <div id={`${cardId}-section-${sectionIndex + 1}`} class="group">
+                      <h4 id={`${cardId}-section-${sectionIndex + 1}-title`} class="text-[1.2rem] font-bold text-blue-600 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <span id={`${cardId}-section-${sectionIndex + 1}-dot`} class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                        {section.title}
+                      </h4>
+                      <div id={`${cardId}-section-${sectionIndex + 1}-content`} class="text-gray-700 leading-relaxed text-base border-l-2 border-gray-100 pl-4 group-hover:border-blue-200 transition-colors duration-300">
+                        {section.content.map((paragraph, paragraphIndex) => (
+                          <p id={`${cardId}-section-${sectionIndex + 1}-paragraph-${paragraphIndex + 1}`} class="mb-1 last:mb-0">
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductGalleryPage from '../../components/astro/ProductGalleryPage.astro';
+import { siteData } from '../../data/siteData';
+---
+
+<BaseLayout
+  title="Professional Chef Wear Manufacturer | TIMYOO Apparel Cambodia"
+  description={siteData.chefWearDetailPage.description}
+  canonicalPath="/products/chef-wear"
+>
+  <ProductGalleryPage pageId="chef-wear-page" pageData={siteData.chefWearDetailPage} />
+</BaseLayout>

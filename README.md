@@ -1,35 +1,25 @@
-# AI React Website Template
+# TIMYOO Astro Website
 
-A flexible, feature-rich React template designed for AI-generated websites with modern development tools and libraries.
+Static Astro website for TIMYOO's apparel manufacturing business.
 
-## ✨ Key Features
+## Key Features
 
-- 🚀 **React 18 + TypeScript** - Modern development experience
-- 🎨 **Tailwind CSS** - Utility-first CSS framework
-- ⚡ **Vite** - Fast build tool
-- 🌐 **i18next** - Complete internationalization solution
-- 🎯 **Zustand** - Lightweight state management
-- ✨ **Framer Motion** - Smooth animation effects
-- 🎭 **Headless UI** - Accessible UI components
-- 📦 **Lucide React** - Beautiful icon library
-- 🛣️ **React Router** - Single-page application routing
+- **Astro + TypeScript** - Static HTML output for SEO-focused pages
+- **Tailwind CSS** - Utility-first CSS framework
+- **Astro build pipeline** - Fast static site generation
+- **Static routes** - Home, chef wear, casuals, and aprons pages
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Core Technologies
-- React 18.3.1 + TypeScript 5.8.3
-- Vite 7.0.0 (Build tool)
+- Astro 7 + TypeScript 5.8.3
 - Tailwind CSS 3.4.17 (CSS framework)
 
-### Feature Libraries
-- React Router DOM 6.30.1 (Routing)
-- Zustand 4.4.7 (State management)
-- i18next + react-i18next (Internationalization)
-- Framer Motion 11.0.8 (Animations)
-- Headless UI 1.7.18 (UI components)
-- Lucide React (Icon library)
+### Runtime
+- No React hydration is used in the production pages.
+- Page interactions use static HTML, CSS animations, and small inline browser scripts.
 
-## 🚀 Quick Start
+## Quick Start
 
 1. **Install dependencies**:
    ```bash
@@ -40,7 +30,7 @@ A flexible, feature-rich React template designed for AI-generated websites with 
    ```bash
    npm run dev
    ```
-   Visit http://localhost:5173 to view the application
+   Visit http://127.0.0.1:5173 to view the application
 
 3. **Build for production**:
    ```bash
@@ -52,19 +42,16 @@ A flexible, feature-rich React template designed for AI-generated websites with 
    npm run preview
    ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
-├── api/             # API related code
-├── assets/          # Static assets
-├── components/      # Reusable components
-├── layouts/         # Layout components  
-├── pages/           # Page components
-├── styles/          # Style files
-├── types/           # TypeScript type definitions
-├── App.tsx          # Main application component
-└── main.tsx         # Application entry point
+├── assets/          # Source assets
+├── components/astro # Astro components
+├── data/            # Shared site data
+├── layouts/         # Astro layouts
+├── pages/           # Astro routes
+└── index.css        # Global Tailwind CSS
 ```
 
 ## More Information

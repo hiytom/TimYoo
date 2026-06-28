@@ -1,0 +1,262 @@
+---
+import { siteData } from '../../data/siteData';
+import { toDomId } from '../../utils/domId';
+import Icon from './Icon.astro';
+
+type GalleryImage = {
+  src: string;
+  alt: string;
+};
+
+const { aboutSection, homeAboutSection } = siteData;
+const { timeline, facilities } = aboutSection;
+
+const gallerySections: Array<{
+  id: string;
+  number: string;
+  title: string;
+  images: readonly GalleryImage[];
+  summary: string;
+  reverse?: boolean;
+  delay?: number;
+}> = [
+  {
+    id: 'about-timeline-journey',
+    number: '01',
+    title: 'Our Journey',
+    summary: 'Rooted in China, growing across Southeast Asia.',
+    images: timeline.images,
+  },
+  {
+    id: 'about-timeline-factory-people',
+    number: '02',
+    title: 'The Team Behind Every Order',
+    summary: 'Operators, QC, packing, and production teams working through daily programs.',
+    images: timeline.peopleImages,
+    reverse: true,
+    delay: 100,
+  },
+  {
+    id: 'about-timeline-factory-live',
+    number: '03',
+    title: 'Life At The Factory',
+    summary: 'Everyday factory spaces that support teams before, during, and after production.',
+    images: timeline.factoryLiveImages,
+    delay: 200,
+  },
+  {
+    id: 'about-timeline-facility',
+    number: '04',
+    title: 'Facilities and Capacity',
+    summary: 'Production lines, storage, fabric handling, and shipment preparation in one integrated site.',
+    images: timeline.facilityImages,
+    reverse: true,
+    delay: 300,
+  },
+];
+---
+
+<section id="knowledge" class="py-20 bg-white text-center hidden">
+  <h2 id="knowledge-title" class="text-3xl font-bold text-gray-900 mb-4">Knowledge Hub</h2>
+  <p id="knowledge-description" class="text-gray-600">Industry insights coming soon...</p>
+</section>
+
+<div id="about" class="overflow-x-hidden">
+  <div id="about-header" class="bg-blue-900 text-white py-12 md:py-20 text-center">
+    <h2 id="about-header-title" class="text-4xl md:text-5xl font-bold mb-4">{aboutSection.header.title}</h2>
+    <p id="about-header-description" class="text-xl text-blue-100 max-w-2xl mx-auto px-4">
+      {aboutSection.header.description}
+    </p>
+  </div>
+
+  <div id="about-timeline" class="bg-white pb-0 pt-14 md:pt-20">
+    <div id="about-timeline-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="about-timeline-content" class="divide-y divide-gray-200">
+        {gallerySections.map((section) => {
+          const images = section.images;
+          const heroImage = images[0];
+          const supportingImages = images.slice(1, 7);
+          const remainingImages = images.slice(7);
+          const isTwoImageSection = images.length === 2;
+          const isFactoryPeopleSection = section.id === 'about-timeline-factory-people';
+
+          if (isFactoryPeopleSection) {
+            const mainImage = images[0];
+            const smallImages = images.slice(1);
+
+            return (
+              <div id={section.id} class="reveal" style={`--reveal-delay: ${section.delay ?? 0}ms`}>
+                <section class="grid gap-6 py-10 lg:grid-cols-12 lg:items-start lg:gap-10">
+                  <div class="lg:order-2 lg:col-span-4 lg:self-center">
+                    <span class="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">{section.number}</span>
+                    <h3 class="mt-3 text-3xl font-bold text-gray-950">{section.title}</h3>
+                    <p class="mt-4 max-w-sm text-base leading-7 text-gray-600">{section.summary}</p>
+                  </div>
+
+                  <div class="grid gap-3 md:grid-cols-[minmax(220px,0.9fr)_minmax(0,1.1fr)] lg:order-1 lg:col-span-8">
+                    <figure id={toDomId(`${section.id}-image`, 1)} class="group overflow-hidden bg-gray-100 shadow-sm">
+                      <img src={mainImage.src} alt={mainImage.alt} class="aspect-[3/4] h-full w-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy" />
+                    </figure>
+
+                    <div class="grid grid-cols-2 gap-3">
+                      {smallImages.map((image, index) => (
+                        <figure id={toDomId(`${section.id}-image`, index + 2)} class="group overflow-hidden bg-gray-100 shadow-sm">
+                          <img src={image.src} alt={image.alt} class="aspect-[3/4] h-full w-full object-cover object-top transition duration-500 group-hover:scale-105" loading="lazy" />
+                        </figure>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              </div>
+            );
+          }
+
+          return (
+            <div id={section.id} class="reveal" style={`--reveal-delay: ${section.delay ?? 0}ms`}>
+              <section class="grid gap-6 py-10 lg:grid-cols-12 lg:items-center lg:gap-10">
+                <div class={`lg:col-span-4 ${section.reverse ? 'lg:order-2' : ''}`}>
+                  <span class="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">{section.number}</span>
+                  <h3 class="mt-3 text-3xl font-bold text-gray-950">{section.title}</h3>
+                  <p class="mt-4 max-w-sm text-base leading-7 text-gray-600">{section.summary}</p>
+                </div>
+
+                <div class={`lg:col-span-8 ${section.reverse ? 'lg:order-1' : ''}`}>
+                  {isTwoImageSection ? (
+                    <div class="grid gap-3 md:grid-cols-2">
+                      {images.map((image, index) => (
+                        <figure id={toDomId(`${section.id}-image`, index + 1)} class="group overflow-hidden bg-gray-100 shadow-sm">
+                          <img src={image.src} alt={image.alt} class="aspect-[4/3] h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                        </figure>
+                      ))}
+                    </div>
+                  ) : (
+                    <div class="grid gap-3 sm:grid-cols-6">
+                      <figure id={toDomId(`${section.id}-image`, 1)} class="group overflow-hidden bg-gray-100 shadow-sm sm:col-span-4">
+                        <img src={heroImage.src} alt={heroImage.alt} class="aspect-[16/11] h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                      </figure>
+
+                      <div class="grid grid-cols-1 gap-3 sm:col-span-2">
+                        {supportingImages.slice(0, 3).map((image, index) => (
+                          <figure id={toDomId(`${section.id}-image`, index + 2)} class="group overflow-hidden bg-gray-100 shadow-sm">
+                            <img src={image.src} alt={image.alt} class="aspect-square h-full w-full object-cover transition duration-500 group-hover:scale-105 sm:aspect-[16/11]" loading="lazy" />
+                          </figure>
+                        ))}
+                      </div>
+
+                      {supportingImages.slice(3, 6).map((image, index) => (
+                        <figure id={toDomId(`${section.id}-image`, index + 5)} class="group hidden overflow-hidden bg-gray-100 shadow-sm sm:col-span-2 sm:block">
+                          <img src={image.src} alt={image.alt} class="aspect-[16/10] h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+
+                  {!isTwoImageSection && remainingImages.length > 0 && (
+                    <div class="mt-3 grid grid-cols-3 gap-3">
+                      {remainingImages.map((image, index) => (
+                        <figure id={toDomId(`${section.id}-image`, index + 8)} class="group overflow-hidden bg-gray-100 shadow-sm">
+                          <img src={image.src} alt={image.alt} class="aspect-[16/10] h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </section>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+
+  <div id="about-teams" class="hidden pt-12 pb-0 md:py-20 bg-white"></div>
+
+  <div id="about-facilities" class="py-12 md:py-16 bg-white">
+    <div id="about-facilities-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="about-facilities-content" class="max-w-5xl mx-auto">
+        <div id="about-facilities-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {facilities.items.map((item, index) => {
+            const itemId = toDomId('about-facility-item', index + 1, item.name);
+            return (
+              <div id={itemId} class="reveal h-full" style={`--reveal-delay: ${index * 100}ms`}>
+                <div id={`${itemId}-card`} class="bg-gray-50 p-6 rounded-xl text-center border border-gray-100 hover:shadow-md transition-shadow h-full flex flex-col items-center justify-center">
+                  <Icon name={item.icon} id={`${itemId}-icon`} class="w-8 h-8 text-blue-600 mb-4" />
+                  <p id={`${itemId}-text`} class="text-lg font-medium text-gray-900">{item.name}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="contact" class="py-12 md:py-24 bg-gray-50 overflow-hidden">
+  <div id="contact-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="contact-value-section" class="mb-12 md:mb-20">
+      <div id="contact-value-header" class="reveal text-center mb-12">
+        <h2 id="contact-value-title" class="text-3xl font-bold text-gray-900 mb-4">{homeAboutSection.value.title}</h2>
+      </div>
+
+      <div id="contact-value-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {homeAboutSection.value.items.map((item, index) => {
+          const itemId = toDomId('contact-value-item', index + 1, item.text);
+          return (
+            <div id={itemId} class="reveal h-full" style={`--reveal-delay: ${index * 100}ms`}>
+              <div id={`${itemId}-card`} class="bg-white p-6 rounded-xl flex items-center gap-4 border border-gray-100 hover:shadow-md transition-shadow h-full">
+                <div id={`${itemId}-icon-wrap`} class="bg-blue-100 p-3 rounded-lg">
+                  <Icon name={item.icon} id={`${itemId}-icon`} class="w-6 h-6 text-blue-600" />
+                </div>
+                <h3 id={`${itemId}-text`} class="text-lg font-bold text-gray-900">{item.text}</h3>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <div id="contact-fit-section" class="mb-12 md:mb-20">
+      <div id="contact-fit-header" class="reveal text-center mb-12">
+        <h2 id="contact-fit-title" class="text-3xl font-bold text-gray-900 mb-4">{homeAboutSection.whoWeWorkWith.title}</h2>
+      </div>
+
+      <div id="contact-fit-content" class="max-w-4xl mx-auto">
+        <div id="contact-fit-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {homeAboutSection.whoWeWorkWith.items.map((item, index) => {
+            const itemId = toDomId('contact-fit-item', index + 1, item.text);
+            return (
+              <div id={itemId} class="reveal h-full" style={`--reveal-delay: ${index * 100}ms`}>
+                <div id={`${itemId}-card`} class="bg-white p-6 rounded-xl text-center border border-gray-100 hover:shadow-md transition-shadow h-full flex flex-col items-center justify-center">
+                  <Icon name={item.icon} id={`${itemId}-icon`} class="w-8 h-8 text-blue-600 mb-4" />
+                  <p id={`${itemId}-text`} class="text-lg font-medium text-gray-900">{item.text}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+
+    <div id="contact-cta" class="text-center max-w-4xl mx-auto">
+      <div id="contact-cta-content" class="reveal relative z-10">
+        <h2 id="contact-cta-title" class="text-3xl font-bold text-gray-900 mb-6 leading-tight">
+          {homeAboutSection.cta.title}
+        </h2>
+        <p id="contact-cta-description" class="text-lg text-gray-600 mb-10 leading-relaxed">
+          {homeAboutSection.cta.description}
+        </p>
+
+        <a
+          id="contact-cta-link"
+          href={`mailto:${homeAboutSection.cta.email}`}
+          class="inline-flex items-center gap-2 md:gap-3 bg-blue-600 text-white px-5 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-blue-700 transition-all hover:shadow-lg hover:-translate-y-1 group whitespace-nowrap"
+        >
+          <Icon name="mail" id="contact-cta-link-icon" class="w-5 h-5" />
+          {homeAboutSection.cta.buttonLabel}
+          <Icon name="arrowRight" id="contact-cta-link-arrow" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

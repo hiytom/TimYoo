@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductGalleryPage from '../../components/astro/ProductGalleryPage.astro';
+import { siteData } from '../../data/siteData';
+---
+
+<BaseLayout
+  title="Professional Aprons for Hospitality Programs | TIMYOO Apparel"
+  description={siteData.apronDetailPage.description}
+  canonicalPath="/products/aprons"
+>
+  <ProductGalleryPage pageId="aprons-page" pageData={siteData.apronDetailPage} />
+</BaseLayout>

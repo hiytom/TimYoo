@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductGalleryPage from '../../components/astro/ProductGalleryPage.astro';
+import { siteData } from '../../data/siteData';
+---
+
+<BaseLayout
+  title="Casualwear Styles for Lifestyle Programs | TIMYOO Apparel"
+  description={siteData.casualsDetailPage.description}
+  canonicalPath="/products/casuals"
+>
+  <ProductGalleryPage pageId="casuals-page" pageData={siteData.casualsDetailPage} />
+</BaseLayout>

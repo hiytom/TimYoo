@@ -1,7 +1,7 @@
 # YOUWARE Project Documentation
 
 ## Project Overview
-This is a corporate website for a textile manufacturing company, built with React, TypeScript, Vite, and Tailwind CSS. The website highlights the company's cost advantages, production capacity, quality control, and global partnerships.
+This is a corporate website for a textile manufacturing company, built with Astro, TypeScript, and Tailwind CSS. The website highlights the company's cost advantages, production capacity, quality control, and global partnerships.
 
 ## Key Features
 - **Responsive Navigation**: Transparent, mobile-friendly menu with smooth transitions.
@@ -14,40 +14,36 @@ This is a corporate website for a textile manufacturing company, built with Reac
 - **Content Localization**: Chinese requirements translated and polished into professional English.
 - **Asset Management**: Optimized image loading and SVG logo for high-quality rendering.
 - **Typography**: Uses Montserrat font for a modern, professional look.
-- **Interactive Animations**: Smooth scroll and hover effects using Framer Motion.
+- **Interactive Animations**: Smooth scroll, reveal transitions, hero motion, and hover effects using CSS and small inline browser scripts.
 
 ## Tech Stack
-- **Framework**: React 18 + TypeScript
-- **Routing**: React Router DOM 6
-- **Build Tool**: Vite 7.0.0
+- **Framework**: Astro 7 + TypeScript
+- **Routing**: File-based Astro routes
+- **Build Tool**: Astro static build
 - **Styling**: Tailwind CSS 3.4.17
-- **Animations**: Framer Motion 11.0.8
-- **Icons**: Lucide React
-- **State Management**: React Hooks (local state)
+- **Animations**: CSS transitions/keyframes plus browser IntersectionObserver
+- **Icons**: Inline Astro SVG component
+- **Runtime**: Static HTML with no React hydration
 
 ## Development Commands
 - `npm install`: Install dependencies
-- `npm run dev`: Start development server
+- `npm run dev`: Start Astro development server
 - `npm run build`: Build for production
 - `npm run preview`: Preview production build
 
 ## Project Structure
 - `src/pages/`: Page components
-  - `Home.tsx`: Landing page with integrated About section
+  - `index.astro`: Landing page with integrated About section
+  - `products/`: Static product detail routes
 - `src/components/`: Reusable UI components
-  - `Navbar.tsx`: Top navigation with routing support
-  - `Hero.tsx`: Landing section
-  - `AboutOnHome.tsx`: Contact/Partner section with value proposition (ID: `contact`)
-  - `Products.tsx`: Product grid
-  - `CaseStudies.tsx`: Main container for success stories
-  - `case-studies/`: Sub-components for Case Studies section
-  - `about/`: Sub-components for About Us page
-    - `TimelineSection.tsx`: Company history
-    - `ValuesSection.tsx`: Vision and values with 2-column layout (Image + List)
-    - `FactorySection.tsx`: Combined factory stats, equipment, and images
-  - `Footer.tsx`: Site footer
+  - `astro/Hero.astro`: Landing section
+  - `astro/Products.astro`: Product grid
+  - `astro/CaseStudies.astro`: Success stories section
+  - `astro/AboutSections.astro`: Timeline, values, and factory sections
+  - `astro/ProductGalleryPage.astro`: Shared product gallery page
+  - `astro/Icon.astro`: Inline SVG icons
 - `src/assets/`: Static assets (images, logos)
-- `src/App.tsx`: Main application layout with Routes
+- `src/layouts/BaseLayout.astro`: Shared site shell
 
 ## Future Roadmap
 1. **Knowledge Hub**: Create a blog/news section.
