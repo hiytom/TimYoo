@@ -9,10 +9,28 @@ type Props = {
   title: string;
   description: string;
   canonicalPath?: string;
+  ogImage?: string;
+  robots?: string;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
-const { title, description, canonicalPath = '/' } = Astro.props;
-const canonicalUrl = new URL(canonicalPath, Astro.site ?? 'https://www.timyooapparel.com').toString();
+const {
+  title,
+  description,
+  canonicalPath = '/',
+  ogImage = '/assets/hero-factory-background.jpg',
+  robots = 'index, follow',
+  structuredData,
+} = Astro.props;
+const siteUrl = Astro.site ?? 'https://www.timyooapparel.com';
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const ogImageUrl = new URL(ogImage, siteUrl).toString();
+const structuredDataItems = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
+const serializeJsonLd = (data: Record<string, unknown>) => JSON.stringify(data).replace(/</g, '\\u003c');
 const { footer, navItems } = siteData;
 const address = footer.contact.addressLines.join(' ');
 const footerLinks = footer.quickLinks.map((link) => ({
@@ -26,13 +44,21 @@ const footerLinks = footer.quickLinks.map((link) => ({
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="robots" content={robots} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/assets/hero-factory-background.jpg" />
+    <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    {structuredDataItems.map((item) => (
+      <script type="application/ld+json" set:html={serializeJsonLd(item)} />
+    ))}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />

@@ -2,12 +2,32 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductGalleryPage from '../../components/astro/ProductGalleryPage.astro';
 import { siteData } from '../../data/siteData';
+import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd } from '../../utils/structuredData';
+
+const pageData = siteData.apronDetailPage;
+const canonicalPath = '/products/aprons';
+const ogImage = '/assets/apron.jpg';
+const pageTitle = `${pageData.title} | TIMYOO Apparel`;
+const structuredData = [
+  buildBreadcrumbJsonLd(canonicalPath, pageData.title),
+  buildCollectionPageJsonLd({
+    path: canonicalPath,
+    name: pageData.title,
+    description: pageData.description,
+    image: ogImage,
+    galleryLabel: pageData.galleryLabel,
+    itemCount: pageData.items.length,
+    keywords: ['commercial apron manufacturer', 'apron manufacturer in Cambodia', 'hospitality uniform manufacturer'],
+  }),
+];
 ---
 
 <BaseLayout
-  title="Professional Aprons for Hospitality Programs | TIMYOO Apparel"
-  description={siteData.apronDetailPage.description}
-  canonicalPath="/products/aprons"
+  title={pageTitle}
+  description={pageData.description}
+  canonicalPath={canonicalPath}
+  ogImage={ogImage}
+  structuredData={structuredData}
 >
-  <ProductGalleryPage pageId="aprons-page" pageData={siteData.apronDetailPage} />
+  <ProductGalleryPage pageId="aprons-page" pageData={pageData} />
 </BaseLayout>

@@ -292,9 +292,9 @@ export const siteData = {
 
   apronDetailPage: {
     eyebrow: 'Apron Collection',
-    title: 'Professional Aprons for Hospitality Programs',
+    title: 'Commercial Apron Manufacturer in Cambodia',
     description:
-      'A curated range of commercial aprons designed for restaurant groups, hotel operations, cafes, and branded service teams. Each style is presented in a clean single-image format for fast buyer review.',
+      'Commercial apron manufacturer in Cambodia for restaurant groups, hotel operations, cafes, and branded hospitality teams seeking repeat production and buyer-ready style review.',
     stats: [
       { label: 'Mock styles', value: '48' },
       { label: 'MOQ from', value: '300 pcs' },
@@ -306,9 +306,9 @@ export const siteData = {
 
   chefWearDetailPage: {
     eyebrow: 'Chef Wear Collection',
-    title: 'Professional Chef Wear for Hospitality Teams',
+    title: 'Chef Wear Manufacturer in Cambodia',
     description:
-      'A focused gallery of chef jackets, bib overalls, and coordinating kitchen workwear presented in the same clean buyer-review format as the apron collection.',
+      'Chef wear manufacturer in Cambodia producing chef jackets, bib overalls, pants, and coordinating kitchen workwear for hospitality teams and repeat sourcing programs.',
     stats: [
       { label: 'Mock styles', value: '21' },
       { label: 'MOQ from', value: '300 pcs' },
@@ -361,9 +361,9 @@ export const siteData = {
 
   casualsDetailPage: {
     eyebrow: 'Casuals Collection',
-    title: 'Casualwear Styles for Lifestyle Programs',
+    title: 'Casualwear Manufacturer in Southeast Asia',
     description:
-      'A focused gallery of casualwear styles for global fashion and lifestyle programs, presented in a clean single-image format for quick buyer review.',
+      'Casualwear manufacturer in Southeast Asia for global fashion and lifestyle programs, with buyer-ready style galleries and repeat apparel production support.',
     stats: [
       { label: 'Mock styles', value: '7' },
       { label: 'MOQ from', value: '300 pcs' },
@@ -523,12 +523,12 @@ export const siteData = {
   footer: {
     summary:
       'Helping global brands reduce sourcing costs while keeping quality and delivery under control.',
-    version: 'v1.5',
+    version: 'v1.6',
     quickLinks: [
-      { name: 'Home', path: '#' },
-      { name: 'Products', path: '#products' },
-      { name: 'Case Studies', path: '#case-studies' },
-      { name: 'About Us', path: '#about' },
+      { name: 'Home', path: '/' },
+      { name: 'Products', path: '/#products' },
+      { name: 'Case Studies', path: '/#case-studies' },
+      { name: 'About Us', path: '/#about' },
     ] satisfies Array<{ name: string; path: string }>,
     contact: {
       addressLines: [

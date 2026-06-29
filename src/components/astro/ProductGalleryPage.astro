@@ -22,6 +22,7 @@ const productDetailLinks = [
   { pageId: 'casuals-page', label: 'Casuals', path: '/products/casuals' },
   { pageId: 'aprons-page', label: 'Aprons', path: '/products/aprons' },
 ];
+const currentProductLink = productDetailLinks.find((link) => link.pageId === pageId) ?? productDetailLinks[0];
 ---
 
 <div id={pageId} class="bg-stone-50 text-slate-900">
@@ -34,6 +35,20 @@ const productDetailLinks = [
 
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div id={`${pageId}-hero-copy`} class="reveal max-w-5xl">
+        <nav aria-label="Breadcrumb" class="mb-8 text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">
+          <ol class="flex flex-wrap items-center gap-2">
+            <li>
+              <a href="/" class="clickable-cursor transition-colors hover:text-white">Home</a>
+            </li>
+            <li aria-hidden="true" class="text-slate-600">/</li>
+            <li>
+              <a href="/#products" class="clickable-cursor transition-colors hover:text-white">Products</a>
+            </li>
+            <li aria-hidden="true" class="text-slate-600">/</li>
+            <li aria-current="page" class="text-blue-300">{currentProductLink.label}</li>
+          </ol>
+        </nav>
+
         <div class="max-w-4xl">
           <p class="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-blue-300">{pageData.eyebrow}</p>
           <h1 class="text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">{pageData.title}</h1>

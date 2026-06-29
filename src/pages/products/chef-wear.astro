@@ -2,12 +2,32 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductGalleryPage from '../../components/astro/ProductGalleryPage.astro';
 import { siteData } from '../../data/siteData';
+import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd } from '../../utils/structuredData';
+
+const pageData = siteData.chefWearDetailPage;
+const canonicalPath = '/products/chef-wear';
+const ogImage = '/assets/chef-wear-user-upload.jpg';
+const pageTitle = `${pageData.title} | TIMYOO Apparel`;
+const structuredData = [
+  buildBreadcrumbJsonLd(canonicalPath, pageData.title),
+  buildCollectionPageJsonLd({
+    path: canonicalPath,
+    name: pageData.title,
+    description: pageData.description,
+    image: ogImage,
+    galleryLabel: pageData.galleryLabel,
+    itemCount: pageData.items.length,
+    keywords: ['chef wear manufacturer', 'chef wear manufacturer in Cambodia', 'kitchen workwear manufacturer'],
+  }),
+];
 ---
 
 <BaseLayout
-  title="Professional Chef Wear Manufacturer | TIMYOO Apparel Cambodia"
-  description={siteData.chefWearDetailPage.description}
-  canonicalPath="/products/chef-wear"
+  title={pageTitle}
+  description={pageData.description}
+  canonicalPath={canonicalPath}
+  ogImage={ogImage}
+  structuredData={structuredData}
 >
-  <ProductGalleryPage pageId="chef-wear-page" pageData={siteData.chefWearDetailPage} />
+  <ProductGalleryPage pageId="chef-wear-page" pageData={pageData} />
 </BaseLayout>

@@ -2,12 +2,32 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductGalleryPage from '../../components/astro/ProductGalleryPage.astro';
 import { siteData } from '../../data/siteData';
+import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd } from '../../utils/structuredData';
+
+const pageData = siteData.casualsDetailPage;
+const canonicalPath = '/products/casuals';
+const ogImage = '/assets/casuals-replacement.jpg';
+const pageTitle = `${pageData.title} | TIMYOO Apparel`;
+const structuredData = [
+  buildBreadcrumbJsonLd(canonicalPath, pageData.title),
+  buildCollectionPageJsonLd({
+    path: canonicalPath,
+    name: pageData.title,
+    description: pageData.description,
+    image: ogImage,
+    galleryLabel: pageData.galleryLabel,
+    itemCount: pageData.items.length,
+    keywords: ['casualwear manufacturer', 'casualwear manufacturer in Southeast Asia', 'lifestyle apparel manufacturer'],
+  }),
+];
 ---
 
 <BaseLayout
-  title="Casualwear Styles for Lifestyle Programs | TIMYOO Apparel"
-  description={siteData.casualsDetailPage.description}
-  canonicalPath="/products/casuals"
+  title={pageTitle}
+  description={pageData.description}
+  canonicalPath={canonicalPath}
+  ogImage={ogImage}
+  structuredData={structuredData}
 >
-  <ProductGalleryPage pageId="casuals-page" pageData={siteData.casualsDetailPage} />
+  <ProductGalleryPage pageId="casuals-page" pageData={pageData} />
 </BaseLayout>
