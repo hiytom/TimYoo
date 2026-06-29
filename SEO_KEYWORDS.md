@@ -71,8 +71,8 @@
 
 页面 title 优先使用“非品牌获客词 + 品牌词”的顺序：
 
-- `Cambodia Apparel Manufacturer | Southeast Asia Garment Factory | TIMYOO Apparel`
-- `Southeast Asia Garment Factory | Cambodia Apparel Manufacturer | TIMYOO Apparel`
+- `Cambodia Apparel Manufacturer | TIMYOO Apparel`
+- `Southeast Asia Garment Factory | TIMYOO Apparel`
 - `Chef Wear Manufacturer in Cambodia | TIMYOO Apparel`
 - `Commercial Apron Manufacturer in Cambodia | TIMYOO Apparel`
 - `Casualwear Manufacturer in Southeast Asia | TIMYOO Apparel`
@@ -100,6 +100,42 @@ meta description 应该自然覆盖目标词、地点、产品类型和采购意
 - `url`: `https://www.timyooapparel.com/`
 
 品牌词负责建立实体识别，非品牌词负责获客流量。
+
+## Website SEO Structure
+
+当前网站采用“工厂能力词 + 产品转化词”的双线 SEO 结构。
+
+工厂能力词负责建立 TIMYOO Apparel 是谁、在哪里生产、是否可信：
+
+- 首页主打：`Cambodia apparel manufacturer`
+- 工厂页主打：`Southeast Asia garment factory`
+- 工厂页辅助：`Cambodia garment factory`
+- 内容辅助：`apparel sourcing Cambodia`、`garment production Cambodia`
+
+产品转化词负责承接更明确的采购需求：
+
+- Aprons 页主打：`commercial apron manufacturer`
+- Chef Wear 页主打：`chef wear manufacturer`
+- Casuals 页主打：`casualwear manufacturer in Southeast Asia`
+
+后续新增页面优先方向：
+
+- `/hospitality-uniform-manufacturer/`: `hospitality uniform manufacturer`
+- `/workwear-manufacturer-cambodia/`: `workwear manufacturer in Cambodia`
+- `/fashion-apparel-manufacturer/`: `fashion apparel manufacturer`
+- `/apparel-sourcing-cambodia/`: `apparel sourcing Cambodia`
+
+不要用 `Zara` 作为页面 title、H1 或主 SEO 关键词。可以在内部定位中理解为 fast-fashion / lifestyle apparel / woven pants 类生产能力，但对外关键词使用非品牌词。
+
+## Current Page Title Map
+
+现有页面 title 应保持“非品牌获客词 + 品牌词”的结构：
+
+- Home: `Cambodia Apparel Manufacturer | TIMYOO Apparel`
+- Factory page: `Southeast Asia Garment Factory | TIMYOO Apparel`
+- Aprons page: `Commercial Apron Manufacturer in Cambodia | TIMYOO Apparel`
+- Chef Wear page: `Chef Wear Manufacturer in Cambodia | TIMYOO Apparel`
+- Casuals page: `Casualwear Manufacturer in Southeast Asia | TIMYOO Apparel`
 
 ## Landing Page Targets
 

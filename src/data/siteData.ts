@@ -527,7 +527,7 @@ export const siteData = {
   footer: {
     summary:
       'Helping global brands reduce sourcing costs while keeping quality and delivery under control.',
-    version: 'v1.9',
+    version: 'v2.0',
     quickLinks: [
       { name: 'Home', path: '/' },
       { name: 'Products', path: '/#products' },
