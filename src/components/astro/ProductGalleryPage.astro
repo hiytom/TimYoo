@@ -18,9 +18,9 @@ type Props = {
 
 const { pageId, pageData } = Astro.props;
 const productDetailLinks = [
-  { pageId: 'chef-wear-page', label: 'Chef Wear', path: '/products/chef-wear' },
-  { pageId: 'casuals-page', label: 'Casuals', path: '/products/casuals' },
-  { pageId: 'aprons-page', label: 'Aprons', path: '/products/aprons' },
+  { pageId: 'chef-wear-page', label: 'Chef Wear', path: '/products/chef-wear/' },
+  { pageId: 'casuals-page', label: 'Casuals', path: '/products/casuals/' },
+  { pageId: 'aprons-page', label: 'Aprons', path: '/products/aprons/' },
 ];
 const currentProductLink = productDetailLinks.find((link) => link.pageId === pageId) ?? productDetailLinks[0];
 ---

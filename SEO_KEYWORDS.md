@@ -72,6 +72,7 @@
 页面 title 优先使用“非品牌获客词 + 品牌词”的顺序：
 
 - `Cambodia Apparel Manufacturer | Southeast Asia Garment Factory | TIMYOO Apparel`
+- `Southeast Asia Garment Factory | Cambodia Apparel Manufacturer | TIMYOO Apparel`
 - `Chef Wear Manufacturer in Cambodia | TIMYOO Apparel`
 - `Commercial Apron Manufacturer in Cambodia | TIMYOO Apparel`
 - `Casualwear Manufacturer in Southeast Asia | TIMYOO Apparel`
@@ -99,3 +100,7 @@ meta description 应该自然覆盖目标词、地点、产品类型和采购意
 - `url`: `https://www.timyooapparel.com/`
 
 品牌词负责建立实体识别，非品牌词负责获客流量。
+
+## Landing Page Targets
+
+- `/southeast-asia-garment-factory/`: primary broad factory landing page for `Southeast Asia garment factory`, supported by Cambodia factory proof, production photos, facility photos, and links to product categories.

@@ -269,7 +269,7 @@ export const siteData = {
         name: 'For restaurant groups and catering brands',
         descriptionLines: ['Durable, wash-resistant workwear', 'Stable sizing for long-term supply'],
         image: '/assets/chef-wear-user-upload.jpg',
-        href: '/products/chef-wear',
+        href: '/products/chef-wear/',
       },
       {
         id: 2,
@@ -277,7 +277,7 @@ export const siteData = {
         name: 'For global lifestyle and fashion brands',
         descriptionLines: ['Seasonal and repeat apparel programs', 'Reliable quality for every collection'],
         image: '/assets/casuals-replacement.jpg',
-        href: '/products/casuals',
+        href: '/products/casuals/',
       },
       {
         id: 3,
@@ -285,7 +285,7 @@ export const siteData = {
         name: 'For hospitality and professional kitchens',
         descriptionLines: ['Built for daily commercial use', 'Fully customizable for repeat programs'],
         image: '/assets/apron.jpg',
-        href: '/products/aprons',
+        href: '/products/aprons/',
       },
     ] satisfies ProductItem[],
   },
@@ -431,6 +431,10 @@ export const siteData = {
       title: 'About Us',
       description: 'A Manufacturing Partner Buyers Can Rely On',
     },
+    factoryLink: {
+      label: 'View Our Southeast Asia Factory',
+      href: '/southeast-asia-garment-factory/',
+    },
     timeline: {
       title: 'Our Journey',
       description: 'Rooted in China, growing across Southeast Asia.',
@@ -523,7 +527,7 @@ export const siteData = {
   footer: {
     summary:
       'Helping global brands reduce sourcing costs while keeping quality and delivery under control.',
-    version: 'v1.6',
+    version: 'v1.7',
     quickLinks: [
       { name: 'Home', path: '/' },
       { name: 'Products', path: '/#products' },

@@ -6,18 +6,23 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.timyooapparel.com/products/aprons</loc>
+    <loc>https://www.timyooapparel.com/products/aprons/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.timyooapparel.com/products/casuals</loc>
+    <loc>https://www.timyooapparel.com/products/casuals/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.timyooapparel.com/products/chef-wear</loc>
+    <loc>https://www.timyooapparel.com/products/chef-wear/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.timyooapparel.com/southeast-asia-garment-factory/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>

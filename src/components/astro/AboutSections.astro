@@ -67,6 +67,14 @@ const gallerySections: Array<{
     <p id="about-header-description" class="text-xl text-blue-100 max-w-2xl mx-auto px-4">
       {aboutSection.header.description}
     </p>
+    <a
+      id="about-factory-link"
+      href={aboutSection.factoryLink.href}
+      class="clickable-cursor mt-8 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-blue-900 transition-all hover:-translate-y-0.5 hover:bg-blue-50 hover:shadow-lg"
+    >
+      {aboutSection.factoryLink.label}
+      <Icon name="arrowRight" id="about-factory-link-icon" class="h-4 w-4" />
+    </a>
   </div>
 
   <div id="about-timeline" class="bg-white pb-0 pt-14 md:pt-20">

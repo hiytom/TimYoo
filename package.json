@@ -1,7 +1,7 @@
 {
   "name": "timyoo-astro-website",
   "private": true,
-  "version": "1.6",
+  "version": "1.7",
   "type": "module",
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev --host 127.0.0.1 --port 5173",
