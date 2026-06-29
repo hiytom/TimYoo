@@ -45,14 +45,15 @@ const gallerySections = [
     title: 'Cambodia-based production inside Southeast Asia',
     summary:
       'Our factory sites in Cambodia give buyers a Southeast Asia garment production base with lower landed cost options, stable capacity, and direct factory communication.',
+    layout: 'factorySites',
     images: [
       {
         src: '/assets/about/our-journey-timyoo-cambodia.jpg',
-        alt: 'TIMYOO Apparel Cambodia garment factory exterior',
+        alt: 'TIMYOO Apparel second Cambodia garment factory opened in 2025',
       },
       {
         src: '/assets/about/our-journey-young-me-apparel.jpg',
-        alt: 'Young Me Apparel Cambodia factory entrance for garment production',
+        alt: 'Young Me Apparel first Cambodia factory established before 2025',
       },
     ],
   },
@@ -61,6 +62,7 @@ const gallerySections = [
     title: 'Workers supporting repeat garment programs',
     summary:
       'Production, sewing, quality control, packing, and support teams work through repeat programs for hospitality apparel, chef wear, aprons, and casualwear.',
+    layout: 'collage',
     images: [
       {
         src: '/assets/about/factory-people/factory-people-01.jpg',
@@ -82,6 +84,26 @@ const gallerySections = [
         src: '/assets/about/factory-people/factory-people-08.jpg',
         alt: 'Southeast Asia apparel manufacturing team at work',
       },
+      {
+        src: '/assets/about/factory-people/factory-people-09.jpg',
+        alt: 'Worker checking garments at Southeast Asia apparel factory',
+      },
+      {
+        src: '/assets/about/factory-people/factory-people-10.jpg',
+        alt: 'Cambodia garment factory workers reviewing finished apparel',
+      },
+      {
+        src: '/assets/about/factory-people/factory-people-11.jpg',
+        alt: 'Apparel worker inspecting garments in Cambodia production facility',
+      },
+      {
+        src: '/assets/about/factory-people/factory-people-12.jpg',
+        alt: 'Factory team member packing apparel for production orders',
+      },
+      {
+        src: '/assets/about/factory-people/factory-people-13.jpg',
+        alt: 'Production team working on garment lines in Southeast Asia factory',
+      },
     ],
   },
   {
@@ -89,6 +111,7 @@ const gallerySections = [
     title: 'Factory spaces built for stable apparel output',
     summary:
       'Facility areas support fabric handling, sewing line organization, storage, packing, and repeat shipment preparation for global apparel buyers.',
+    layout: 'facilityCollage',
     images: [
       {
         src: '/assets/about/facility/facility-09.jpg',
@@ -113,6 +136,22 @@ const gallerySections = [
       {
         src: '/assets/about/facility/facility-11.jpg',
         alt: 'Cambodia apparel manufacturing facility for global buyers',
+      },
+      {
+        src: '/assets/about/facility/facility-12.jpg',
+        alt: 'Warehouse aisle with packed apparel cartons at Cambodia garment factory',
+      },
+      {
+        src: '/assets/about/facility/facility-13.jpg',
+        alt: 'Fabric rolls stored for apparel production programs',
+      },
+      {
+        src: '/assets/about/facility/facility-14.jpg',
+        alt: 'Packed garment cartons stacked in Southeast Asia apparel factory warehouse',
+      },
+      {
+        src: '/assets/about/facility/facility-15.jpg',
+        alt: 'Apparel shipment cartons organized inside Cambodia factory facility',
       },
     ],
   },
@@ -143,8 +182,13 @@ const productLinks = siteData.productsSection.items.map((item) => ({
   label: item.name,
   href: item.href ?? '/#products',
 }));
+const collageImageAspectClasses = ['aspect-[4/5]', 'aspect-[3/4]', 'aspect-[5/7]', 'aspect-[4/5]'];
+const getCollageImageAspectClass = (imageIndex: number) => collageImageAspectClasses[imageIndex % collageImageAspectClasses.length];
 const { facilities } = siteData.aboutSection;
 const { value, whoWeWorkWith, cta } = siteData.homeAboutSection;
+const factoryContact = siteData.footer.contact;
+const factoryCoordinates = factoryContact.coordinates;
+const factoryMapEmbedUrl = `https://www.google.com/maps?q=${factoryCoordinates.latitude},${factoryCoordinates.longitude}&z=17&output=embed`;
 
 const structuredData = [
   buildOrganizationJsonLd(),
@@ -201,53 +245,53 @@ const structuredData = [
   structuredData={structuredData}
 >
   <article id="southeast-asia-garment-factory-page" class="bg-white text-slate-950">
-    <section class="relative overflow-hidden bg-slate-950 pb-14 pt-36 text-white md:pb-20 md:pt-44">
-      <div class="absolute inset-0">
-        <img src="/assets/about/facility/facility-09.jpg" alt="" class="h-full w-full object-cover opacity-35" loading="eager" />
-        <div class="absolute inset-0 bg-slate-950/55"></div>
+    <section id="factory-hero" class="relative overflow-hidden bg-slate-950 pb-14 pt-36 text-white md:pb-20 md:pt-44">
+      <div id="factory-hero-media" class="absolute inset-0">
+        <img id="factory-hero-image" src="/assets/about/facility/facility-09.jpg" alt="" class="h-full w-full object-cover opacity-35" loading="eager" />
+        <div id="factory-hero-shade" class="absolute inset-0 bg-slate-950/55"></div>
       </div>
 
-      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <nav aria-label="Breadcrumb" class="mb-8 text-xs font-semibold uppercase tracking-[0.24em] text-slate-300">
-          <ol class="flex flex-wrap items-center gap-2">
-            <li>
-              <a href="/" class="clickable-cursor transition-colors hover:text-white">Home</a>
+      <div id="factory-hero-container" class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <nav id="factory-hero-breadcrumb" aria-label="Breadcrumb" class="mb-8 text-xs font-semibold uppercase tracking-[0.24em] text-slate-300">
+          <ol id="factory-hero-breadcrumb-list" class="flex flex-wrap items-center gap-2">
+            <li id="factory-hero-breadcrumb-home-item">
+              <a id="factory-hero-breadcrumb-home-link" href="/" class="clickable-cursor transition-colors hover:text-white">Home</a>
             </li>
-            <li aria-hidden="true" class="text-slate-500">/</li>
-            <li aria-current="page" class="text-blue-200">Southeast Asia Garment Factory</li>
+            <li id="factory-hero-breadcrumb-separator" aria-hidden="true" class="text-slate-500">/</li>
+            <li id="factory-hero-breadcrumb-current" aria-current="page" class="text-blue-200">Southeast Asia Garment Factory</li>
           </ol>
         </nav>
 
-        <div class="max-w-4xl">
-          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-blue-200">Factory Visibility</p>
-          <h1 class="text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">Southeast Asia Garment Factory</h1>
-          <p class="mt-6 max-w-2xl text-base leading-8 text-slate-200 md:text-lg">
+        <div id="factory-hero-copy" class="max-w-4xl">
+          <p id="factory-hero-eyebrow" class="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-blue-200">Factory Visibility</p>
+          <h1 id="factory-hero-title" class="text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">Southeast Asia Garment Factory</h1>
+          <p id="factory-hero-summary" class="mt-6 max-w-2xl text-base leading-8 text-slate-200 md:text-lg">
             TIMYOO Apparel gives global buyers a Cambodia-based apparel manufacturing base inside Southeast Asia, with real factory visibility, stable capacity, and support for repeat garment production.
           </p>
         </div>
 
-        <div class="mt-10 grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div id="factory-hero-proof-grid" class="mt-10 grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {proofPoints.map((point) => (
-            <div class="border border-white/15 bg-white/10 px-5 py-4 backdrop-blur-sm">
-              <div class="text-2xl font-bold tracking-tight">{point.value}</div>
-              <div class="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">{point.label}</div>
+            <div id={toDomId('factory-hero-proof', point.label)} class="border border-white/15 bg-white/10 px-5 py-4 backdrop-blur-sm">
+              <div id={toDomId('factory-hero-proof-value', point.label)} class="text-2xl font-bold tracking-tight">{point.value}</div>
+              <div id={toDomId('factory-hero-proof-label', point.label)} class="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">{point.label}</div>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <section class="bg-white py-14 md:py-20">
-      <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
-        <div class="lg:col-span-4">
-          <p class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Why this matters</p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">A broader sourcing base, with Cambodia factory proof.</h2>
+    <section id="factory-intro" class="bg-white py-14 md:py-20">
+      <div id="factory-intro-container" class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+        <div id="factory-intro-heading" class="lg:col-span-4">
+          <p id="factory-intro-eyebrow" class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Why this matters</p>
+          <h2 id="factory-intro-title" class="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">A broader sourcing base, with Cambodia factory proof.</h2>
         </div>
-        <div class="space-y-5 text-base leading-8 text-slate-600 lg:col-span-8">
-          <p>
+        <div id="factory-intro-copy" class="space-y-5 text-base leading-8 text-slate-600 lg:col-span-8">
+          <p id="factory-intro-copy-primary">
             Buyers often search for a Southeast Asia garment factory before narrowing down to a specific country. Our production base is in Cambodia, giving sourcing teams a practical option for apparel programs that need stable capacity, cost control, and direct factory communication.
           </p>
-          <p>
+          <p id="factory-intro-copy-secondary">
             The photos below show the factory spaces, people, and daily operating environment behind TIMYOO Apparel. They are meant to help buyers evaluate us before moving into product samples, compliance review, and repeat production planning.
           </p>
         </div>
@@ -255,18 +299,18 @@ const structuredData = [
     </section>
 
     <section id="factory-profile" class="overflow-hidden bg-gray-50 py-14 md:py-20">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="reveal mb-12 text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Factory Profile</p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight text-gray-950 md:text-4xl">A Manufacturing Partner Buyers Can Rely On</h2>
-          <p class="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-600">
+      <div id="factory-profile-container" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div id="factory-profile-header" class="reveal mb-12 text-center">
+          <p id="factory-profile-eyebrow" class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Factory Profile</p>
+          <h2 id="factory-profile-title" class="mt-3 text-3xl font-bold tracking-tight text-gray-950 md:text-4xl">A Manufacturing Partner Buyers Can Rely On</h2>
+          <p id="factory-profile-summary" class="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-600">
             This is the original About Us story behind the photo gallery: our factory timeline, production capacity, and the buyer problems we are built to solve.
           </p>
         </div>
 
         <div id="factory-profile-timeline" class="relative">
-          <div class="absolute left-1/2 hidden h-full w-px -translate-x-1/2 bg-blue-200 md:block"></div>
-          <div class="space-y-6 md:space-y-12">
+          <div id="factory-profile-timeline-line" class="absolute left-1/2 hidden h-full w-px -translate-x-1/2 bg-blue-200 md:block"></div>
+          <div id="factory-profile-timeline-list" class="space-y-6 md:space-y-12">
             {factoryTimelineEvents.map((event, index) => {
               const isEven = index % 2 === 0;
               return (
@@ -275,20 +319,20 @@ const structuredData = [
                   class="reveal"
                   style={`--reveal-x: ${isEven ? '50px' : '-50px'}; --reveal-y: 0; --reveal-delay: ${index * 100}ms`}
                 >
-                  <div class={`flex flex-col items-center md:flex-row ${isEven ? 'md:flex-row-reverse' : ''}`}>
-                    <div class="w-full flex-1 p-2 md:w-1/2 md:p-6">
-                      <div class={`border-l-4 border-blue-500 bg-white p-5 shadow-md md:p-6 ${isEven ? 'text-left' : 'md:text-right'}`}>
-                        <span class="block text-xl font-bold text-blue-600">{event.year}</span>
-                        <h3 class="mt-2 text-xl font-bold text-gray-950">{event.title}</h3>
-                        <p class="mt-2 text-sm leading-6 text-gray-600 md:text-base">{event.description}</p>
+                  <div id={toDomId('factory-profile-timeline-event-layout', index + 1, event.year)} class={`flex flex-col items-center md:flex-row ${isEven ? 'md:flex-row-reverse' : ''}`}>
+                    <div id={toDomId('factory-profile-timeline-event-content-wrap', index + 1, event.year)} class="w-full flex-1 p-2 md:w-1/2 md:p-6">
+                      <div id={toDomId('factory-profile-timeline-event-card', index + 1, event.year)} class={`border-l-4 border-blue-500 bg-white p-5 shadow-md md:p-6 ${isEven ? 'text-left' : 'md:text-right'}`}>
+                        <span id={toDomId('factory-profile-timeline-event-year', index + 1, event.year)} class="block text-xl font-bold text-blue-600">{event.year}</span>
+                        <h3 id={toDomId('factory-profile-timeline-event-title', index + 1, event.year)} class="mt-2 text-xl font-bold text-gray-950">{event.title}</h3>
+                        <p id={toDomId('factory-profile-timeline-event-description', index + 1, event.year)} class="mt-2 text-sm leading-6 text-gray-600 md:text-base">{event.description}</p>
                       </div>
                     </div>
 
-                    <div class="relative z-10 my-4 hidden h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-blue-500 shadow-lg md:flex">
-                      <div class="h-2 w-2 rounded-full bg-white"></div>
+                    <div id={toDomId('factory-profile-timeline-event-marker', index + 1, event.year)} class="relative z-10 my-4 hidden h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-blue-500 shadow-lg md:flex">
+                      <div id={toDomId('factory-profile-timeline-event-marker-dot', index + 1, event.year)} class="h-2 w-2 rounded-full bg-white"></div>
                     </div>
 
-                    <div class="hidden w-full flex-1 p-6 md:block md:w-1/2"></div>
+                    <div id={toDomId('factory-profile-timeline-event-spacer', index + 1, event.year)} class="hidden w-full flex-1 p-6 md:block md:w-1/2"></div>
                   </div>
                 </div>
               );
@@ -298,63 +342,256 @@ const structuredData = [
       </div>
     </section>
 
-    <section id="factory-photo-gallery" class="bg-stone-50 pb-16 pt-6 md:pb-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="divide-y divide-stone-200">
-          {gallerySections.map((section, sectionIndex) => (
-            <section class="grid gap-8 py-12 lg:grid-cols-12 lg:items-start lg:gap-10">
-              <div class={`lg:col-span-4 ${sectionIndex % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <p class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">{section.eyebrow}</p>
-                <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950">{section.title}</h2>
-                <p class="mt-4 text-base leading-7 text-slate-600">{section.summary}</p>
-              </div>
+    <section id="factory-location" class="bg-white py-14 md:py-20">
+      <div id="factory-location-container" class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:items-stretch lg:px-8">
+        <div id="factory-location-copy" class="flex flex-col justify-center lg:col-span-4">
+          <p id="factory-location-eyebrow" class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Factory Location</p>
+          <h2 id="factory-location-title" class="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">TIMYOO Apparel Cambodia factory location</h2>
+          <p id="factory-location-summary" class="mt-4 text-base leading-7 text-slate-600">
+            Located near Phnom Penh for buyer visits, about 50+ km from Phnom Penh International Airport and roughly 1.5 hours by car.
+          </p>
+          <a
+            id="factory-location-map-link"
+            href={factoryContact.mapUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="clickable-cursor mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg"
+          >
+            <Icon name="mapPin" id="factory-location-map-link-icon" class="h-4 w-4" />
+            Open in Google Maps
+          </a>
+        </div>
 
-              <div class={`lg:col-span-8 ${sectionIndex % 2 === 1 ? 'lg:order-1' : ''}`}>
-                <div class="grid gap-3 sm:grid-cols-6">
-                  {section.images.map((image, imageIndex) => (
-                    <figure
-                      id={toDomId('southeast-asia-factory-image', section.eyebrow, imageIndex + 1)}
-                      class={`group overflow-hidden bg-white shadow-sm ${
-                        imageIndex === 0 ? 'sm:col-span-4 sm:row-span-2' : 'sm:col-span-2'
-                      }`}
-                    >
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        loading={sectionIndex === 0 && imageIndex === 0 ? 'eager' : 'lazy'}
-                        decoding="async"
-                        class={`h-full w-full object-cover transition duration-500 group-hover:scale-105 ${
-                          imageIndex === 0 ? 'aspect-[16/11]' : 'aspect-[4/3]'
-                        }`}
-                      />
-                    </figure>
-                  ))}
+        <div id="factory-location-map-wrap" class="overflow-hidden border border-stone-200 bg-stone-100 shadow-sm lg:col-span-8">
+          <iframe
+            id="factory-location-map"
+            title="TIMYOO Apparel Cambodia factory location on Google Maps"
+            src={factoryMapEmbedUrl}
+            class="h-[420px] w-full md:h-[520px]"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="factory-photo-gallery" class="bg-stone-50 pb-16 pt-6 md:pb-24">
+      <div id="factory-photo-gallery-container" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div id="factory-photo-gallery-list" class="divide-y divide-stone-200">
+          {gallerySections.map((section, sectionIndex) => {
+            const isFactorySites = section.layout === 'factorySites';
+            const isCollage = section.layout === 'collage';
+            const isFacilityCollage = section.layout === 'facilityCollage';
+            const hasCustomLayout = isFactorySites || isCollage || isFacilityCollage;
+            const featuredImage = section.images[0];
+            const collageGridImages = section.images.slice(1, 5);
+            const collageStripImages = section.images.slice(5);
+            const facilityTopFeaturedImage = section.images[0];
+            const facilityTopSmallImages = section.images.slice(1, 5);
+            const facilityBottomSmallImages = [section.images[6], section.images[7], section.images[9], section.images[5]].filter(Boolean);
+            const facilityBottomFeaturedImage = section.images[8] ?? section.images[6] ?? section.images[0];
+
+            return (
+              <section
+                id={toDomId('factory-photo-gallery-section', section.eyebrow)}
+                class={`grid gap-8 py-12 lg:grid-cols-12 lg:gap-10 ${hasCustomLayout ? 'lg:items-center' : 'lg:items-start'}`}
+              >
+                <div id={toDomId('factory-photo-gallery-copy', section.eyebrow)} class={`lg:col-span-4 ${sectionIndex % 2 === 1 ? 'lg:order-2' : ''}`}>
+                  <p id={toDomId('factory-photo-gallery-eyebrow', section.eyebrow)} class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">{section.eyebrow}</p>
+                  <h2 id={toDomId('factory-photo-gallery-title', section.eyebrow)} class="mt-3 text-3xl font-bold tracking-tight text-slate-950">{section.title}</h2>
+                  <p id={toDomId('factory-photo-gallery-summary', section.eyebrow)} class="mt-4 text-base leading-7 text-slate-600">{section.summary}</p>
                 </div>
-              </div>
-            </section>
-          ))}
+
+                <div id={toDomId('factory-photo-gallery-images-wrap', section.eyebrow)} class={`lg:col-span-8 ${sectionIndex % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  {isFactorySites ? (
+                    <div id={toDomId('factory-photo-gallery-images-grid', section.eyebrow)} class="grid gap-3 sm:grid-cols-2 lg:gap-4">
+                      {section.images.map((image, imageIndex) => (
+                        <figure
+                          id={toDomId('southeast-asia-factory-image', section.eyebrow, imageIndex + 1)}
+                          class="group overflow-hidden bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg"
+                        >
+                          <img
+                            id={toDomId('southeast-asia-factory-img', section.eyebrow, imageIndex + 1)}
+                            src={image.src}
+                            alt={image.alt}
+                            loading={imageIndex === 0 ? 'eager' : 'lazy'}
+                            decoding="async"
+                            class="aspect-[4/3] h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+                          />
+                        </figure>
+                      ))}
+                    </div>
+                  ) : isCollage ? (
+                    <div id={toDomId('factory-photo-gallery-images-grid', section.eyebrow)} class="grid gap-3 md:grid-cols-12">
+                      <figure
+                        id={toDomId('southeast-asia-factory-image', section.eyebrow, 1)}
+                        class="group overflow-hidden bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg md:col-span-5"
+                      >
+                        <img
+                          id={toDomId('southeast-asia-factory-img', section.eyebrow, 1)}
+                          src={featuredImage.src}
+                          alt={featuredImage.alt}
+                          loading="lazy"
+                          decoding="async"
+                          class="aspect-[3/4] h-full w-full object-cover object-top transition duration-500 group-hover:scale-105 md:aspect-[4/5]"
+                        />
+                      </figure>
+
+                      <div id={toDomId('factory-photo-gallery-collage-cluster', section.eyebrow)} class="grid grid-cols-2 gap-3 md:col-span-7">
+                        {collageGridImages.map((image, imageIndex) => (
+                          <figure
+                            id={toDomId('southeast-asia-factory-image', section.eyebrow, imageIndex + 2)}
+                            class={`group overflow-hidden bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg ${imageIndex % 2 === 1 ? 'sm:mt-8' : ''}`}
+                          >
+                            <img
+                              id={toDomId('southeast-asia-factory-img', section.eyebrow, imageIndex + 2)}
+                              src={image.src}
+                              alt={image.alt}
+                              loading="lazy"
+                              decoding="async"
+                              class={`${getCollageImageAspectClass(imageIndex)} h-full w-full object-cover object-top transition duration-500 group-hover:scale-105`}
+                            />
+                          </figure>
+                        ))}
+                      </div>
+
+                      <div id={toDomId('factory-photo-gallery-collage-strip', section.eyebrow)} class="grid grid-cols-2 gap-3 sm:grid-cols-5 md:col-span-12">
+                        {collageStripImages.map((image, imageIndex) => (
+                          <figure
+                            id={toDomId('southeast-asia-factory-image', section.eyebrow, imageIndex + 6)}
+                            class="group overflow-hidden bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg"
+                          >
+                            <img
+                              id={toDomId('southeast-asia-factory-img', section.eyebrow, imageIndex + 6)}
+                              src={image.src}
+                              alt={image.alt}
+                              loading="lazy"
+                              decoding="async"
+                              class="aspect-[4/5] h-full w-full object-cover object-top transition duration-500 group-hover:scale-105"
+                            />
+                          </figure>
+                        ))}
+                      </div>
+                    </div>
+                  ) : isFacilityCollage ? (
+                    <div id={toDomId('factory-photo-gallery-images-grid', section.eyebrow)} class="grid gap-3 lg:gap-4">
+                      <div id={toDomId('factory-photo-gallery-facility-collage-top', section.eyebrow)} class="grid gap-3 lg:grid-cols-12 lg:gap-4">
+                        <figure
+                          id={toDomId('southeast-asia-factory-image', section.eyebrow, 'top-featured')}
+                          class="group overflow-hidden bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg lg:col-span-6"
+                        >
+                          <img
+                            id={toDomId('southeast-asia-factory-img', section.eyebrow, 'top-featured')}
+                            src={facilityTopFeaturedImage.src}
+                            alt={facilityTopFeaturedImage.alt}
+                            loading="lazy"
+                            decoding="async"
+                            class="aspect-[4/3] h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+                          />
+                        </figure>
+
+                        <div id={toDomId('factory-photo-gallery-facility-collage-top-small', section.eyebrow)} class="grid grid-cols-2 gap-3 lg:col-span-6 lg:gap-4">
+                          {facilityTopSmallImages.map((image, imageIndex) => (
+                            <figure
+                              id={toDomId('southeast-asia-factory-image', section.eyebrow, 'top-small', imageIndex + 1)}
+                              class="group overflow-hidden bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg"
+                            >
+                              <img
+                                id={toDomId('southeast-asia-factory-img', section.eyebrow, 'top-small', imageIndex + 1)}
+                                src={image.src}
+                                alt={image.alt}
+                                loading="lazy"
+                                decoding="async"
+                                class="aspect-[16/11] h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+                              />
+                            </figure>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div id={toDomId('factory-photo-gallery-facility-collage-bottom', section.eyebrow)} class="grid gap-3 lg:grid-cols-12 lg:gap-4">
+                        <div id={toDomId('factory-photo-gallery-facility-collage-bottom-small', section.eyebrow)} class="grid grid-cols-2 gap-3 lg:col-span-6 lg:gap-4">
+                          {facilityBottomSmallImages.map((image, imageIndex) => (
+                            <figure
+                              id={toDomId('southeast-asia-factory-image', section.eyebrow, 'bottom-small', imageIndex + 1)}
+                              class="group overflow-hidden bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg"
+                            >
+                              <img
+                                id={toDomId('southeast-asia-factory-img', section.eyebrow, 'bottom-small', imageIndex + 1)}
+                                src={image.src}
+                                alt={image.alt}
+                                loading="lazy"
+                                decoding="async"
+                                class="aspect-[16/11] h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+                              />
+                            </figure>
+                          ))}
+                        </div>
+
+                        <figure
+                          id={toDomId('southeast-asia-factory-image', section.eyebrow, 'bottom-featured')}
+                          class="group overflow-hidden bg-white shadow-sm transition-shadow duration-300 hover:shadow-lg lg:col-span-6"
+                        >
+                          <img
+                            id={toDomId('southeast-asia-factory-img', section.eyebrow, 'bottom-featured')}
+                            src={facilityBottomFeaturedImage.src}
+                            alt={facilityBottomFeaturedImage.alt}
+                            loading="lazy"
+                            decoding="async"
+                            class="aspect-[4/3] h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
+                          />
+                        </figure>
+                      </div>
+                    </div>
+                  ) : (
+                    <div id={toDomId('factory-photo-gallery-images-grid', section.eyebrow)} class="grid gap-3 sm:grid-cols-6">
+                      {section.images.map((image, imageIndex) => (
+                        <figure
+                          id={toDomId('southeast-asia-factory-image', section.eyebrow, imageIndex + 1)}
+                          class={`group overflow-hidden bg-white shadow-sm ${
+                            imageIndex === 0 ? 'sm:col-span-4 sm:row-span-2' : 'sm:col-span-2'
+                          }`}
+                        >
+                          <img
+                            id={toDomId('southeast-asia-factory-img', section.eyebrow, imageIndex + 1)}
+                            src={image.src}
+                            alt={image.alt}
+                            loading={sectionIndex === 0 && imageIndex === 0 ? 'eager' : 'lazy'}
+                            decoding="async"
+                            class={`h-full w-full object-cover transition duration-500 group-hover:scale-105 ${
+                              imageIndex === 0 ? 'aspect-[16/11]' : 'aspect-[4/3]'
+                            }`}
+                          />
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </section>
+            );
+          })}
         </div>
       </div>
     </section>
 
     <section id="factory-capacity" class="bg-white py-14 md:py-20">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="reveal mb-12 text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Capacity</p>
-          <h2 class="text-3xl font-bold text-gray-950 md:text-4xl">{facilities.title}</h2>
-          <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-gray-600">{facilities.description}</p>
+      <div id="factory-capacity-container" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div id="factory-capacity-header" class="reveal mb-12 text-center">
+          <p id="factory-capacity-eyebrow" class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Capacity</p>
+          <h2 id="factory-capacity-title" class="text-3xl font-bold text-gray-950 md:text-4xl">{facilities.title}</h2>
+          <p id="factory-capacity-summary" class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-gray-600">{facilities.description}</p>
         </div>
 
-        <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div id="factory-capacity-grid" class="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {facilities.items.map((item, index) => (
             <div
               id={toDomId('factory-capacity-item', index + 1, item.name)}
               class="reveal h-full"
               style={`--reveal-delay: ${index * 100}ms`}
             >
-              <div class="flex h-full flex-col items-center justify-center border border-gray-100 bg-gray-50 p-6 text-center transition-shadow hover:shadow-md">
+              <div id={toDomId('factory-capacity-card', index + 1, item.name)} class="flex h-full flex-col items-center justify-center border border-gray-100 bg-gray-50 p-6 text-center transition-shadow hover:shadow-md">
                 <Icon name={item.icon} id={toDomId('factory-capacity-icon', item.name)} class="mb-4 h-8 w-8 text-blue-600" />
-                <p class="text-lg font-medium text-gray-950">{item.name}</p>
+                <p id={toDomId('factory-capacity-text', index + 1, item.name)} class="text-lg font-medium text-gray-950">{item.name}</p>
               </div>
             </div>
           ))}
@@ -363,38 +600,38 @@ const structuredData = [
     </section>
 
     <section id="factory-buyer-fit" class="bg-gray-50 py-14 md:py-20">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-14 grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div>
-            <div class="reveal mb-8">
-              <p class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Buyer Value</p>
-              <h2 class="mt-3 text-3xl font-bold text-gray-950">{value.title}</h2>
+      <div id="factory-buyer-fit-container" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div id="factory-buyer-fit-grid" class="mb-14 grid gap-10 lg:grid-cols-2 lg:items-start">
+          <div id="factory-value-section">
+            <div id="factory-value-header" class="reveal mb-8">
+              <p id="factory-value-eyebrow" class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Buyer Value</p>
+              <h2 id="factory-value-title" class="mt-3 text-3xl font-bold text-gray-950">{value.title}</h2>
             </div>
-            <div class="grid gap-6">
+            <div id="factory-value-list" class="grid gap-6">
               {value.items.map((item, index) => (
-                <div class="reveal h-full" style={`--reveal-delay: ${index * 100}ms`}>
-                  <div class="flex h-full items-center gap-4 border border-gray-100 bg-white p-6 transition-shadow hover:shadow-md">
-                    <div class="bg-blue-100 p-3">
+                <div id={toDomId('factory-value-item', index + 1, item.text)} class="reveal h-full" style={`--reveal-delay: ${index * 100}ms`}>
+                  <div id={toDomId('factory-value-card', index + 1, item.text)} class="flex h-full items-center gap-4 border border-gray-100 bg-white p-6 transition-shadow hover:shadow-md">
+                    <div id={toDomId('factory-value-icon-wrap', index + 1, item.text)} class="bg-blue-100 p-3">
                       <Icon name={item.icon} id={toDomId('factory-value-icon', item.text)} class="h-6 w-6 text-blue-600" />
                     </div>
-                    <h3 class="text-lg font-bold text-gray-950">{item.text}</h3>
+                    <h3 id={toDomId('factory-value-item-title', index + 1, item.text)} class="text-lg font-bold text-gray-950">{item.text}</h3>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div>
-            <div class="reveal mb-8">
-              <p class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Best Fit</p>
-              <h2 class="mt-3 text-3xl font-bold text-gray-950">{whoWeWorkWith.title}</h2>
+          <div id="factory-fit-section">
+            <div id="factory-fit-header" class="reveal mb-8">
+              <p id="factory-fit-eyebrow" class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Best Fit</p>
+              <h2 id="factory-fit-title" class="mt-3 text-3xl font-bold text-gray-950">{whoWeWorkWith.title}</h2>
             </div>
-            <div class="grid gap-6 sm:grid-cols-3 lg:grid-cols-1">
+            <div id="factory-fit-list" class="grid gap-6 sm:grid-cols-3 lg:grid-cols-1">
               {whoWeWorkWith.items.map((item, index) => (
-                <div class="reveal h-full" style={`--reveal-delay: ${index * 100}ms`}>
-                  <div class="flex h-full flex-col items-center justify-center border border-gray-100 bg-white p-6 text-center transition-shadow hover:shadow-md">
+                <div id={toDomId('factory-fit-item', index + 1, item.text)} class="reveal h-full" style={`--reveal-delay: ${index * 100}ms`}>
+                  <div id={toDomId('factory-fit-card', index + 1, item.text)} class="flex h-full flex-col items-center justify-center border border-gray-100 bg-white p-6 text-center transition-shadow hover:shadow-md">
                     <Icon name={item.icon} id={toDomId('factory-fit-icon', item.text)} class="mb-4 h-8 w-8 text-blue-600" />
-                    <p class="text-lg font-medium text-gray-950">{item.text}</p>
+                    <p id={toDomId('factory-fit-text', index + 1, item.text)} class="text-lg font-medium text-gray-950">{item.text}</p>
                   </div>
                 </div>
               ))}
@@ -402,10 +639,11 @@ const structuredData = [
           </div>
         </div>
 
-        <div class="reveal mx-auto max-w-4xl text-center">
-          <h2 class="text-3xl font-bold leading-tight text-gray-950">{cta.title}</h2>
-          <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-gray-600">{cta.description}</p>
+        <div id="factory-buyer-fit-cta" class="reveal mx-auto max-w-4xl text-center">
+          <h2 id="factory-buyer-fit-cta-title" class="text-3xl font-bold leading-tight text-gray-950">{cta.title}</h2>
+          <p id="factory-buyer-fit-cta-description" class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-gray-600">{cta.description}</p>
           <a
+            id="factory-buyer-fit-cta-link"
             href={`mailto:${cta.email}`}
             class="clickable-cursor mt-9 inline-flex items-center gap-3 rounded-full bg-blue-600 px-6 py-3 text-base font-bold text-white transition-all hover:-translate-y-1 hover:bg-blue-700 hover:shadow-lg md:px-8 md:py-4 md:text-lg"
           >
@@ -417,20 +655,21 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="bg-white py-16 md:py-20">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div class="lg:col-span-7">
-            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Product programs</p>
-            <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">Explore the apparel categories we produce.</h2>
-            <p class="mt-4 max-w-2xl text-base leading-7 text-slate-600">
+    <section id="factory-product-programs" class="bg-white py-16 md:py-20">
+      <div id="factory-product-programs-container" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div id="factory-product-programs-layout" class="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div id="factory-product-programs-copy" class="lg:col-span-7">
+            <p id="factory-product-programs-eyebrow" class="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">Product programs</p>
+            <h2 id="factory-product-programs-title" class="mt-3 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">Explore the apparel categories we produce.</h2>
+            <p id="factory-product-programs-summary" class="mt-4 max-w-2xl text-base leading-7 text-slate-600">
               Our Southeast Asia garment factory setup supports commercial workwear, hospitality uniforms, aprons, chef wear, and casualwear programs for repeat buyers.
             </p>
           </div>
 
-          <div class="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
+          <div id="factory-product-programs-links" class="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
             {productLinks.map((product) => (
               <a
+                id={toDomId('factory-product-programs-link', product.category)}
                 href={product.href}
                 class="clickable-cursor inline-flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-700 transition-colors hover:border-blue-700 hover:text-blue-700"
               >

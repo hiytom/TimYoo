@@ -44,6 +44,11 @@ export function buildOrganizationJsonLd(): JsonLd {
       addressRegion: 'Kampong Cham Province',
       addressCountry: 'KH',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: footer.contact.coordinates.latitude,
+      longitude: footer.contact.coordinates.longitude,
+    },
     hasMap: footer.contact.mapUrl,
     contactPoint: [
       {

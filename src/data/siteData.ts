@@ -527,7 +527,7 @@ export const siteData = {
   footer: {
     summary:
       'Helping global brands reduce sourcing costs while keeping quality and delivery under control.',
-    version: 'v1.8',
+    version: 'v1.9',
     quickLinks: [
       { name: 'Home', path: '/' },
       { name: 'Products', path: '/#products' },
@@ -541,7 +541,11 @@ export const siteData = {
         'Cambodia',
       ],
       mapUrl:
-        'https://www.google.com/maps/search/?api=1&query=TIMYOO%20APPAREL%20%28CAMBODIA%29%20CO.%2C%20LTD.',
+        'https://www.google.com/maps/place/TIMYOO+APPAREL+(CAMBODIA)+CO.,+LTD./@11.8759796,104.9481118,17z/data=!3m1!4b1!4m6!3m5!1s0x310ea71c41f98a13:0x487368920e78ecf7!8m2!3d11.8759796!4d104.9506867!16s%2Fg%2F11zfthqzpq',
+      coordinates: {
+        latitude: 11.8759796,
+        longitude: 104.9506867,
+      },
       phone: '+1 (555) 123-4567',
       email: 'huiwang@timyooapparel.com',
     },
