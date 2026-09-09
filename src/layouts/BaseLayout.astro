@@ -264,6 +264,22 @@ const footerLinks = footer.quickLinks.map((link) => ({
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
+      document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+        link.addEventListener('click', () => {
+          const zaraz = (window as unknown as {
+            zaraz?: {
+              track?: (eventName: string, properties?: Record<string, string>) => void;
+            };
+          }).zaraz;
+
+          zaraz?.track?.('email_click', {
+            link_url: link.getAttribute('href') ?? '',
+            link_text: link.textContent?.trim() ?? '',
+            page_path: window.location.pathname,
+          });
+        });
+      });
+
       if (window.location.hash) {
         window.setTimeout(() => {
           scrollToSection(window.location.hash.slice(1), 'smooth');
