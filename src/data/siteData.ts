@@ -134,14 +134,31 @@ const apronCollection04Items = apronCollection04Images.map((image, index) => {
   };
 });
 
-const casualsDetailItems = Array.from({ length: 7 }, (_, index) => {
+const casualsDetailImages = [
+  '1-1.jpg',
+  '1-2.jpg',
+  '1-3.jpg',
+  '1-4.jpg',
+  '1-5.jpg',
+  '1-6.jpg',
+  '1-7.png',
+  '1-8.png',
+  '1-9.png',
+  '1-10.png',
+  '2-1.jpg',
+  '2-2.png',
+  '2-3.png',
+  '2-4.png',
+] as const;
+
+const casualsDetailItems = casualsDetailImages.map((fileName, index) => {
   const sequence = String(index + 1).padStart(2, '0');
 
   return {
     id: index + 1,
     name: `Casuals Style ${sequence}`,
     code: `CA-${301 + index}`,
-    image: `/assets/casuals/${index + 1}.jpg`,
+    image: `/assets/casuals/${fileName}`,
     useCase: 'Lifestyle & fashion programs',
     material: 'Customizable woven fabric',
     weight: '160-300 gsm',
@@ -365,7 +382,7 @@ export const siteData = {
     description:
       'Casualwear manufacturer in Southeast Asia for global fashion and lifestyle programs, with buyer-ready style galleries and repeat apparel production support.',
     stats: [
-      { label: 'Mock styles', value: '7' },
+      { label: 'Mock styles', value: '14' },
       { label: 'MOQ from', value: '300 pcs' },
       { label: 'Lead time', value: '30-45 days' },
     ],
@@ -527,7 +544,7 @@ export const siteData = {
   footer: {
     summary:
       'Helping global brands reduce sourcing costs while keeping quality and delivery under control.',
-    version: 'v2.0.1',
+    version: 'v2.1',
     quickLinks: [
       { name: 'Home', path: '/' },
       { name: 'Products', path: '/#products' },
