@@ -2,6 +2,14 @@
 
 Static Astro website for TIMYOO's apparel manufacturing business.
 
+## Maintenance Mode
+
+`maintenanceEnabled` in `astro.config.mjs` is currently `true`.
+The build uses `src/maintenance/` and `maintenance-public/` exclusively, so original pages and public assets are not included.
+The Cloudflare Pages worker returns the construction page with HTTP 503 for every URL, including old page and asset URLs. It disables caching and indexing of the temporary response.
+
+To restore the website, set `maintenanceEnabled` to `false`, rebuild and redeploy. The original website sources remain in `src/` and `public/`.
+
 ## Key Features
 
 - **Astro + TypeScript** - Static HTML output for SEO-focused pages
