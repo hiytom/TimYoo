@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
-const maintenanceEnabled = true;
+const maintenanceEnabled = false;
 
 export default defineConfig({
   srcDir: maintenanceEnabled ? './src/maintenance' : './src',
