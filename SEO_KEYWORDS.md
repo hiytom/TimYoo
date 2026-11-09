@@ -140,3 +140,22 @@ meta description 应该自然覆盖目标词、地点、产品类型和采购意
 ## Landing Page Targets
 
 - `/southeast-asia-garment-factory/`: primary broad factory landing page for `Southeast Asia garment factory`, supported by Cambodia factory proof, production photos, facility photos, and links to product categories.
+
+## GEO Baseline (2026-10-21)
+
+- 保留现有页面结构，不增加 FAQ / Question 区块，不以 FAQ schema 作为收录手段。
+- 公开搜索已发现工厂页和围裙页；这不是 Google Search Console 的全量收录结论，也不代表 ChatGPT 已推荐公司。
+- 线上 `/assets/logo.svg` 实测返回 HTTP 200 和首页 HTML，且出现在搜索结果中。本次改为实际输出的 SVG URL，并生成顶层 `404.html`。发布后仍需复查未知 URL 的 HTTP 状态，以及是否存在 Cloudflare 自定义重写规则。
+- 各业务页都输出同一个 Organization 和 WebSite 实体，每个 `@id` 只出现一次；产品 CollectionPage 关联该公司。
+- 首页和工厂页原有介绍明确表达公司、Cambodia 生产地点及 chef wear / aprons / casualwear 品类，避免描述“买家如何搜索”的空泛文案。
+- 产品页在已有介绍区链接工厂页和询盘邮箱。新内容不添加未经核实的产能、认证、客户、排名或交期承诺。
+
+发布后复核：
+
+1. 检查真实 logo URL 返回 SVG，随机不存在的页面返回 404，现有 sitemap 页面仍返回 200。
+2. 在有访问权限的 Search Console / Bing Webmaster Tools 中检查 canonical 和收录情况，按需提交 sitemap；公开 `site:` 搜索不能代替这些工具。
+3. 核对真实 Cloudflare 爬虫日志，确认 OAI-SearchBot 未被挑战或拦截。仅模拟 User-Agent 的 200 响应不证明真实爬虫畅通。
+4. 使用固定采购问题记录日期、是否启用联网搜索、提及厂家、引用 URL；与 GA4 的 AI 来源访问和邮箱点击一起评估。
+5. 认证目录、地图、公司 LinkedIn 等站外资料需先核实归属、地址及有效期，再建立关联。不要把个人主页自动标为公司 `sameAs`。
+
+参考：[Cloudflare Pages 路由与 404 行为](https://developers.cloudflare.com/pages/configuration/serving-pages/)。

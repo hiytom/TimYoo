@@ -4,6 +4,7 @@ import logoUrl from '../assets/logo.svg?url';
 import { siteData } from '../data/siteData';
 import { toDomId } from '../utils/domId';
 import Icon from '../components/astro/Icon.astro';
+import { buildOrganizationJsonLd, buildWebsiteJsonLd } from '../utils/structuredData';
 
 type Props = {
   title: string;
@@ -25,11 +26,13 @@ const {
 const siteUrl = Astro.site ?? 'https://www.timyooapparel.com';
 const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 const ogImageUrl = new URL(ogImage, siteUrl).toString();
-const structuredDataItems = structuredData
+const pageStructuredData = structuredData
   ? Array.isArray(structuredData)
     ? structuredData
     : [structuredData]
   : [];
+const structuredDataItems = [...pageStructuredData, buildWebsiteJsonLd(), buildOrganizationJsonLd()]
+  .filter((item, index, items) => !item['@id'] || items.findIndex((candidate) => candidate['@id'] === item['@id']) === index);
 const serializeJsonLd = (data: Record<string, unknown>) => JSON.stringify(data).replace(/</g, '\\u003c');
 const { footer, navItems } = siteData;
 const address = footer.contact.addressLines.join(' ');
@@ -77,7 +80,7 @@ const footerLinks = footer.quickLinks.map((link) => ({
         <div id="navbar-layout" class="flex justify-between items-center h-28">
           <div id="navbar-logo-wrap" class="flex-shrink-0 flex items-center">
             <a id="navbar-home-link" href="/" class="clickable-cursor flex cursor-pointer items-center">
-              <img id="navbar-logo-image" class="h-[1rem] w-auto cursor-pointer brightness-0 invert" src={logoUrl} alt="Company Logo" />
+              <img id="navbar-logo-image" class="h-[1rem] w-auto cursor-pointer brightness-0 invert" src={logoUrl} alt="TIMYOO Apparel" />
             </a>
           </div>
 
@@ -126,7 +129,7 @@ const footerLinks = footer.quickLinks.map((link) => ({
         <div id="footer-grid" class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           <div id="footer-company">
             <div id="footer-logo-wrap" class="mb-6 flex h-[1.75rem] items-center">
-              <img id="footer-logo-image" src={logoUrl} alt="Logo" class="h-[0.875rem] w-auto brightness-0 invert" />
+              <img id="footer-logo-image" src={logoUrl} alt="TIMYOO Apparel" class="h-[0.875rem] w-auto brightness-0 invert" />
             </div>
             <p id="footer-summary" class="text-gray-400 mb-6">{footer.summary}</p>
           </div>

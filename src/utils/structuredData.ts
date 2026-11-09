@@ -1,4 +1,5 @@
 import { siteData } from '../data/siteData';
+import logoUrl from '../assets/logo.svg?url&no-inline';
 
 export type JsonLd = Record<string, unknown>;
 
@@ -32,7 +33,7 @@ export function buildOrganizationJsonLd(): JsonLd {
     name: BRAND_NAME,
     alternateName: BRAND_SHORT_NAME,
     url: absoluteUrl('/'),
-    logo: absoluteUrl('/assets/logo.svg'),
+    logo: absoluteUrl(logoUrl),
     image: absoluteUrl('/assets/hero-factory-background.jpg'),
     description:
       'Cambodia apparel manufacturer and Southeast Asia garment factory partner for chef wear, aprons, casualwear, and repeat garment production.',
@@ -139,6 +140,10 @@ export function buildCollectionPageJsonLd({
     breadcrumb: {
       '@id': `${absoluteUrl(path)}#breadcrumb`,
     },
+    about: {
+      '@id': `${absoluteUrl('/')}#organization`,
+    },
+    inLanguage: 'en',
     keywords,
     mainEntity: {
       '@type': 'ItemList',

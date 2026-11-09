@@ -182,7 +182,7 @@ export const siteData = {
       title: 'Reduce Apparel Sourcing Costs',
       accent: 'Without Losing Control',
     },
-    subtitle: 'Cambodia-based apparel manufacturing for repeat programs.',
+    subtitle: 'TIMYOO Apparel manufactures chef wear, aprons and casualwear in Cambodia for repeat apparel programs.',
     features: [
       {
         title: 'Cost Advantage',
@@ -544,7 +544,7 @@ export const siteData = {
   footer: {
     summary:
       'Helping global brands reduce sourcing costs while keeping quality and delivery under control.',
-    version: 'v2.5',
+    version: 'v2.6',
     quickLinks: [
       { name: 'Home', path: '/' },
       { name: 'Products', path: '/#products' },
