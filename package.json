@@ -1,12 +1,14 @@
 {
   "name": "timyoo-astro-website",
   "private": true,
-  "version": "2.6",
+  "version": "2.7",
   "type": "module",
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev --host 127.0.0.1 --port 5173",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
-    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --host 127.0.0.1 --port 4173"
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview --host 127.0.0.1 --port 4173",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "analytics:report": "node scripts/ga4-report.mjs"
   },
   "dependencies": {},
   "devDependencies": {

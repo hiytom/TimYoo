@@ -65,13 +65,10 @@ const footerLinks = footer.quickLinks.map((link) => ({
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-      window.gtag('js', new Date());
-      window.gtag('config', 'G-M76L0HBC81', { send_page_view: false });
+    <script>
+      import { initializeAnalytics } from '../utils/analytics';
+      initializeAnalytics();
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M76L0HBC81"></script>
     <title>{title}</title>
   </head>
   <body>
@@ -187,6 +184,8 @@ const footerLinks = footer.quickLinks.map((link) => ({
     </button>
 
     <script>
+      import { trackEmailClick } from '../utils/analytics';
+
       const navbar = document.getElementById('site-navbar');
       const mobileToggle = document.getElementById('navbar-mobile-toggle');
       const mobileMenu = document.getElementById('navbar-mobile-menu');
@@ -274,49 +273,12 @@ const footerLinks = footer.quickLinks.map((link) => ({
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      const trackEmailClick = (link: HTMLAnchorElement) => {
-        const properties = {
-          link_url: link.getAttribute('href') ?? '',
-          link_text: link.textContent?.trim() ?? '',
-          page_path: window.location.pathname,
-        };
-        const startedAt = Date.now();
-
-        const tryTrack = () => {
-          const zaraz = (window as unknown as {
-            zaraz?: {
-              track?: (eventName: string, properties?: Record<string, string>) => void;
-            };
-          }).zaraz;
-          const gtag = (window as unknown as {
-            gtag?: (command: string, eventName: string, properties?: Record<string, string>) => void;
-          }).gtag;
-
-          if (zaraz?.track) {
-            zaraz.track('email_click', properties);
-            return;
-          }
-
-          if (gtag) {
-            gtag('event', 'email_click', properties);
-            return;
-          }
-
-          if (Date.now() - startedAt < 2000) {
-            window.setTimeout(tryTrack, 50);
-          }
-        };
-
-        tryTrack();
-      };
-
       document.querySelectorAll<HTMLAnchorElement>('a[href^="mailto:"]').forEach((link) => {
         link.addEventListener('click', (event) => {
           event.preventDefault();
-          trackEmailClick(link);
-          window.setTimeout(() => {
+          trackEmailClick(link, () => {
             window.location.href = link.href;
-          }, 250);
+          });
         });
       });
 
